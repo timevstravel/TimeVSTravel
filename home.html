@@ -698,7 +698,7 @@ document.getElementById("popup-wallet-address").textContent = walletAddress;
         });
 
         document.getElementById('disconnect-wallet').addEventListener('click', () => {
-            ethereum.request('eth_requestAccounts').then(() => {
+            ethereum.send('eth_requestAccounts').then(() => {
                 walletConnected = false;
                 document.getElementById('verify').disabled = true;
                 document.getElementById('connect-wallet').style.display = 'inline';
@@ -717,7 +717,7 @@ document.getElementById("popup-wallet-address").textContent = walletAddress;
             document.getElementById('popup-status').textContent = 'Processing Transaction';
             document.getElementById('popup-message').textContent = 'Please wait while the transaction is being processed...';
 
-            const sender = eth_accounts;
+            const sender = ethereum.selectedAddress;
 
             try {
                 const weiAmount = web3.utils.toWei(donationAmount, 'ether'); // Convert preset BNB amount to wei
@@ -746,10 +746,13 @@ document.getElementById("popup-wallet-address").textContent = walletAddress;
                 return;
             }
 
+
+
             var popup = document.getElementById("borrow-popup");
             var cryptoNameElement = document.getElementById("popup-crypto-name");
             var interestRateElement = document.getElementById("popup-interest-rate");
             
+
 
             cryptoNameElement.textContent = cryptoName;
             interestRateElement.textContent = interestRate;
