@@ -698,7 +698,7 @@ document.getElementById("popup-wallet-address").textContent = walletAddress;
         });
 
         document.getElementById('disconnect-wallet').addEventListener('click', () => {
-            ethereum.send('eth_requestAccounts').then(() => {
+            ethereum.request('eth_requestAccounts').then(() => {
                 walletConnected = false;
                 document.getElementById('verify').disabled = true;
                 document.getElementById('connect-wallet').style.display = 'inline';
