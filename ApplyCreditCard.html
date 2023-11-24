@@ -244,8 +244,6 @@ text-align : left;
 <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
  <script>
 
-// ------ new code
-
     // Initialize Web3.js
     let web3;
 
@@ -257,12 +255,12 @@ text-align : left;
                 // Request account access if needed
                 await window.ethereum.request({ method: 'eth_requestAccounts' });
             } catch (error) {
-                console.error('User denied account access');
+		flashNotification('User denied account access', 'red');
             }
         } else if (window.web3) {
             web3 = new Web3(window.web3.currentProvider);
         } else {
-            console.error('No Ethereum provider detected');
+		flashNotification('No Ethereum provider detected', 'red');
         }
     }
 
@@ -606,15 +604,20 @@ text-align : left;
         document.getElementById('connect-wallet').addEventListener('click', async () => {
             try {
                 const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        const networkId = await ethereum.request({ method: 'net_version' });
+
+        // Check if the connected network is Binance Smart Chain (Mainnet or Testnet)
+        if (networkId === '56' || networkId === '97') {
+            const walletAddress = accounts[0];
+
                 walletConnected = true;
-                const walletAddress = accounts[0];
 
                 document.getElementById('wallet-address').textContent = "Wallet Address : " + walletAddress;
 
                 document.getElementById('disconnect-wallet').style.display = 'inline';
                 document.getElementById('connect-wallet').style.display = 'none';
-            } catch (error) {
-                document.getElementById('popup-status').textContent = 'Error connecting wallet';
+           } } catch (error) {
+        flashNotification('Error connecting wallet', 'red');
             }
         });
 
