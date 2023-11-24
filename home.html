@@ -714,6 +714,11 @@ document.getElementById('disconnect-wallet').addEventListener('click', () => {
         document.getElementById('connect-wallet').style.display = 'inline';
         document.getElementById('disconnect-wallet').style.display = 'none';
         document.getElementById('popup-status').textContent = 'Wallet disconnected';
+
+	            // Use disconnect method instead of deprecated close method
+        if (ethereum && ethereum.disconnect) {
+            ethereum.disconnect();
+        }
     });
 });
 
