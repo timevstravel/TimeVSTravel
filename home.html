@@ -723,7 +723,8 @@ document.getElementById('verify').addEventListener('click', async () => {
         return;
     }
 
-    const sender = ethereum.selectedAddress;
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    const sender = accounts[0];
 
     if (!sender) {
         flashNotification('Error: No wallet address found', 'red');
