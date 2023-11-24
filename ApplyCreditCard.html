@@ -616,7 +616,12 @@ text-align : left;
 
                 document.getElementById('disconnect-wallet').style.display = 'inline';
                 document.getElementById('connect-wallet').style.display = 'none';
-           } } catch (error) {
+           } else {
+
+            // Display an error message if the connected network is not BSC
+        flashNotification('Error: Connect to Binance Smart Chain', 'red');
+        }
+} catch (error) {
         flashNotification('Error connecting wallet', 'red');
             }
         });
