@@ -389,6 +389,7 @@ align:center;
             <img src="chain-icon-url" alt="Chain Icon" class="network-icon">
             <span>Connected to Binance Smart Chain</span> <!-- Replace with actual chain name
         </div> -->
+	<b><p id="wallet-address"></p></b>
          <button id="connect-wallet"><b>Connect Wallet</b></button>
         <button id="disconnect-wallet" style="display: none;"><b>Disconnect Wallet</b></button>
     </div>
@@ -694,7 +695,7 @@ document.getElementById('connect-wallet').addEventListener('click', async () => 
         const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
         walletConnected = true;
         const walletAddress = accounts[0];
-
+        document.getElementById("wallet-address").textContent = "Wallet Address : " + walletAddress;
         document.getElementById("popup-wallet-address").textContent = walletAddress;
 
         document.getElementById('disconnect-wallet').style.display = 'inline';
@@ -708,6 +709,7 @@ document.getElementById('connect-wallet').addEventListener('click', async () => 
 document.getElementById('disconnect-wallet').addEventListener('click', () => {
     ethereum.send('eth_requestAccounts').then(() => {
         walletConnected = false;
+	            document.getElementById("wallet-address").textContent = '';
         document.getElementById('verify').disabled = true;
         document.getElementById('connect-wallet').style.display = 'inline';
         document.getElementById('disconnect-wallet').style.display = 'none';
