@@ -41,6 +41,10 @@ body {
             cursor: pointer;
         }
 
+#disconnect-wallet {
+           background-color: grey;
+}
+
 #notification {
     font-size: 20px; /* Font size for the notification text */
     font-weight: bold; /* Bold text */
@@ -170,6 +174,7 @@ text-align : left;
 <div class="header">
 <a href="home.html">
         <img src="logo.png" alt="Your Logo" align="left" class="logo"></a>
+<b><p id="wallet-address"></p></b>
          <button id="connect-wallet"><b>Connect Wallet</b></button>
         <button id="disconnect-wallet" style="display: none;"><b>Disconnect Wallet</b></button>
     </div>
@@ -616,6 +621,7 @@ text-align : left;
         document.getElementById('disconnect-wallet').addEventListener('click', () => {
             ethereum.send('eth_requestAccounts').then(() => {
                 walletConnected = false;
+                document.getElementById('wallet-address').textContent = "";
                 document.getElementById('connect-wallet').style.display = 'inline';
                 document.getElementById('disconnect-wallet').style.display = 'none';
             });
