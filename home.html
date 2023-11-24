@@ -708,7 +708,7 @@ document.getElementById('connect-wallet').addEventListener('click', async () => 
             document.getElementById('popup-status').textContent = 'Wallet connected';
         } else {
             // Display an error message if the connected network is not BSC
-            document.getElementById('popup-status').textContent = 'Error: Connect to Binance Smart Chain';
+                    flashNotification('Error: Connect to Binance Smart Chain', 'red');
         }
     } catch (error) {
         document.getElementById('popup-status').textContent = 'Error connecting wallet';
