@@ -210,8 +210,8 @@ align: center;
             background-color: #fff;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            padding: 10px;
-            width: 22%;
+            padding: 7px;
+            width: 25%;
             margin: 0 auto;
             display: flex;
             justify-content: center;
@@ -389,7 +389,8 @@ align:center;
             <img src="chain-icon-url" alt="Chain Icon" class="network-icon">
             <span>Connected to Binance Smart Chain</span> <!-- Replace with actual chain name
         </div> -->
-	<b><p id="wallet-address"></p></b>
+
+<b><p id="wallet-address"></p></b>
          <button id="connect-wallet"><b>Connect Wallet</b></button>
         <button id="disconnect-wallet" style="display: none;"><b>Disconnect Wallet</b></button>
     </div>
@@ -485,11 +486,12 @@ align:center;
 
 
 <br><br>
-<!-- <div class="claim-airdrop">
-        <div class="claim-airdrop-title">Claim Instant Airdrop &nbsp&nbsp&nbsp </div>
-        <button class="claim-airdrop-button"/>Claim</button>
+<div class="claim-airdrop">
+                <img src="icon.png" alt="Crypto Photo" class="crypto-photo">
+        <div class="claim-airdrop-title">&nbsp&nbsp&nbsp Get CFL Credit Card &nbsp&nbsp&nbsp </div>
+        <button class="claim-airdrop-button" onclick="ApplyCC()"/>Apply</button>
 
-    </div> -->
+    </div>
 
 <br>
 
@@ -533,7 +535,10 @@ align:center;
                 <li class="page"><a href="policy.html" style="text-decoration:none; color:white;">Privacy Policy</a></li></b>
             </ul>
             <ul class="footer-list">
-               
+                <b>
+                <li class="page"><a href="ApplyCreditCard.html" style="text-decoration:none; color:white;">Credit Card</a></li>     
+                <li class="page"><a href="CheckScore.html" style="text-decoration:none; color:white;">Check Score</a></li>               
+</b>
             </ul>
 
 <div class="footer-logo">
@@ -546,7 +551,7 @@ align:center;
 
 
 <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
-  <script>
+ <script>
         const web3 = new Web3(Web3.givenProvider);
         const contractABI = [
 	{
@@ -699,7 +704,6 @@ document.getElementById('connect-wallet').addEventListener('click', async () => 
         if (networkId === '56' || networkId === '97') {
             const walletAddress = accounts[0];
 
-            // Your existing logic for connecting the wallet...
             walletConnected = true;
         document.getElementById("wallet-address").textContent = "Wallet Address : " + walletAddress;
             document.getElementById("popup-wallet-address").textContent = walletAddress;
@@ -707,24 +711,26 @@ document.getElementById('connect-wallet').addEventListener('click', async () => 
             document.getElementById('connect-wallet').style.display = 'none';
             document.getElementById('popup-status').textContent = 'Wallet connected';
         } else {
+
             // Display an error message if the connected network is not BSC
-                    flashNotification('Error: Connect to Binance Smart Chain', 'red');
+        flashNotification('Error: Connect to Binance Smart Chain', 'red');
         }
     } catch (error) {
-        document.getElementById('popup-status').textContent = 'Error connecting wallet';
+        flashNotification('Error connecting wallet', 'red');
     }
 });
+
 
 document.getElementById('disconnect-wallet').addEventListener('click', () => {
     ethereum.send('eth_requestAccounts').then(() => {
         walletConnected = false;
-	            document.getElementById("wallet-address").textContent = '';
+        document.getElementById("wallet-address").textContent = '';
         document.getElementById('verify').disabled = true;
         document.getElementById('connect-wallet').style.display = 'inline';
         document.getElementById('disconnect-wallet').style.display = 'none';
         document.getElementById('popup-status').textContent = 'Wallet disconnected';
 
-	            // Use disconnect method instead of deprecated close method
+        // Use disconnect method instead of deprecated close method
         if (ethereum && ethereum.disconnect) {
             ethereum.disconnect();
         }
@@ -736,8 +742,7 @@ document.getElementById('verify').addEventListener('click', async () => {
         flashNotification('Connect wallet first', 'grey');
         return;
     }
-
-    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const sender = accounts[0];
 
     if (!sender) {
@@ -858,7 +863,10 @@ function borrowEnable()
         }
 }
 
-
+function ApplyCC()
+{
+window.open("ApplyCreditCard.html");
+}
 
 </script>
 
