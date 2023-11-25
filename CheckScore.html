@@ -639,9 +639,9 @@ text-align : left;
                //     throw new Error('Wallet not connected.');
                 //}
 
-
+                const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
                 // Get the current user's Ethereum address
-                const fromAddress = ethereum.selectedAddress;
+                const fromAddress = accounts[0];
 
                 // Call your contract function to check the score
                 const gas = await contract.methods.CheckCreditScore().estimateGas({ value: web3.utils.toWei('0.0085', 'ether'), from: fromAddress });
