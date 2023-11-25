@@ -619,18 +619,25 @@ text-align : left;
         document.getElementById('check-score').addEventListener('click', async () => {
 
                 document.getElementById('status').textContent = ``;
-                if (!walletConnected)
-		{
+              //  if (!walletConnected)
+	//	{
+          //          flashNotification('Connect wallet first', 'grey');
+            //        return;		
+		//}
+
+
+           try {
+                if (!walletConnected) {
                     flashNotification('Connect wallet first', 'grey');
-                    return;		
-		}
+                    return;
+                }
     document.getElementById('popup').style.display = 'flex';
-            try {
+           // try {
 
                 // Ensure that the wallet is connected
-                if (!ethereum.selectedAddress) {
-                    throw new Error('Wallet not connected.');
-                }
+             //   if (!ethereum.selectedAddress) {
+               //     throw new Error('Wallet not connected.');
+                //}
 
 
                 // Get the current user's Ethereum address
