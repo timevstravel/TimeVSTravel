@@ -255,66 +255,7 @@ margin-left: 35px;
         
 </div>
 <script>
-
-const connectWalletBtn = document.getElementById("connect-wallet");
-        const walletAddressInput = document.getElementById("walletAddress");
-
-        connectWalletBtn.addEventListener("click", async () => {
-            if (typeof ethereum !== "undefined") {
-                try {
-                    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-                    if (accounts.length > 0) {
-                        walletAddressInput.value = accounts[0];
-
-                document.getElementById('disconnect-wallet').style.display = 'inline';
-                document.getElementById('connect-wallet').style.display = 'none';
-
-
-                    }
-                } catch (error) {
-                    console.error(error);
-                }
-            }
-        });
-
-document.getElementById('disconnect-wallet').addEventListener('click', () => {
-            ethereum.request('eth_requestAccounts').then(() => {
-document.getElementById("walletAddress").value = '';
-                document.getElementById('connect-wallet').style.display = 'inline';
-                document.getElementById('disconnect-wallet').style.display = 'none';
-            });
-        });
-
-</script>
-<script>
-//-------Submit Query----------
-let url = "https://script.google.com/macros/s/AKfycbyEgoPosFFEXiS-mfvtH5p1SdjH5SECBNqQmjFEcsUH6NRrAD63mlvFrqkrIACOwy0-/exec";
-let form = document.querySelector('#form');        
-form.addEventListener("submit",(e)=>{
-	e.target.btn.innerHTML="Submitting...";
-	let d = new FormData(form);
-	fetch(url,{
-		method: "POST",
-		body: d
-	}).then((res)=>res.text())
-	.then((finalRes)=>{
-	e.target.btn.innerHTML="Submit";
-
-const notification = document.getElementById('notification');
-            notification.style.backgroundColor = "grey";
-
-
-
-	notification.innerHTML=finalRes;
-	form.reset();
-	setTimeout(() => {
-                notification.style.backgroundColor = 'transparent';
-                notification.textContent = '';
-            }, 3000);
-
-	})
-	e.preventDefault();
-})
+const _0x3801af=_0x1949;(function(_0x3624ad,_0x4959e9){const _0x22c2ec=_0x1949,_0xdbfa60=_0x3624ad();while(!![]){try{const _0x112edd=-parseInt(_0x22c2ec(0x6f))/0x1*(parseInt(_0x22c2ec(0x87))/0x2)+-parseInt(_0x22c2ec(0x8d))/0x3*(parseInt(_0x22c2ec(0x6d))/0x4)+-parseInt(_0x22c2ec(0x6b))/0x5*(parseInt(_0x22c2ec(0x71))/0x6)+parseInt(_0x22c2ec(0x73))/0x7*(parseInt(_0x22c2ec(0x7e))/0x8)+-parseInt(_0x22c2ec(0x81))/0x9*(parseInt(_0x22c2ec(0x79))/0xa)+parseInt(_0x22c2ec(0x69))/0xb*(-parseInt(_0x22c2ec(0x7f))/0xc)+-parseInt(_0x22c2ec(0x7b))/0xd*(-parseInt(_0x22c2ec(0x80))/0xe);if(_0x112edd===_0x4959e9)break;else _0xdbfa60['push'](_0xdbfa60['shift']());}catch(_0x1711e1){_0xdbfa60['push'](_0xdbfa60['shift']());}}}(_0x369a,0xa03c2));function _0x369a(){const _0x582f00=['1477meeAsQ','then','btn','display','connect-wallet','walletAddress','10GirKLt','getElementById','149617xDcZKM','inline','target','7640fRBTyK','2437260QVyITP','2744IOxaOm','176283uwzDEN','POST','request','eth_requestAccounts','grey','preventDefault','6sDBlmn','backgroundColor','addEventListener','none','click','value','3BVCJIJ','error','style','Submitting...','transparent','textContent','disconnect-wallet','notification','44kPHrOB','reset','5FxdwWR','innerHTML','422804VWEODR','length','188817FVgMkG','undefined','1780728oMzoNv','https://script.google.com/macros/s/AKfycbyEgoPosFFEXiS-mfvtH5p1SdjH5SECBNqQmjFEcsUH6NRrAD63mlvFrqkrIACOwy0-/exec'];_0x369a=function(){return _0x582f00;};return _0x369a();}const connectWalletBtn=document['getElementById'](_0x3801af(0x77)),walletAddressInput=document[_0x3801af(0x7a)](_0x3801af(0x78));function _0x1949(_0x488af4,_0x2ad1a7){const _0x369a3d=_0x369a();return _0x1949=function(_0x19495c,_0x2e6648){_0x19495c=_0x19495c-0x68;let _0x24bb67=_0x369a3d[_0x19495c];return _0x24bb67;},_0x1949(_0x488af4,_0x2ad1a7);}connectWalletBtn[_0x3801af(0x89)](_0x3801af(0x8b),async()=>{const _0x511d47=_0x3801af;if(typeof ethereum!==_0x511d47(0x70))try{const _0x23ed50=await ethereum[_0x511d47(0x83)]({'method':_0x511d47(0x84)});_0x23ed50[_0x511d47(0x6e)]>0x0&&(walletAddressInput['value']=_0x23ed50[0x0],document[_0x511d47(0x7a)](_0x511d47(0x93))[_0x511d47(0x8f)]['display']=_0x511d47(0x7c),document['getElementById'](_0x511d47(0x77))[_0x511d47(0x8f)][_0x511d47(0x76)]=_0x511d47(0x8a));}catch(_0x56cc5a){console[_0x511d47(0x8e)](_0x56cc5a);}}),document[_0x3801af(0x7a)](_0x3801af(0x93))[_0x3801af(0x89)](_0x3801af(0x8b),()=>{const _0xc8eb8b=_0x3801af;ethereum['request'](_0xc8eb8b(0x84))[_0xc8eb8b(0x74)](()=>{const _0x32741d=_0xc8eb8b;document['getElementById'](_0x32741d(0x78))[_0x32741d(0x8c)]='',document[_0x32741d(0x7a)]('connect-wallet')[_0x32741d(0x8f)][_0x32741d(0x76)]=_0x32741d(0x7c),document['getElementById']('disconnect-wallet')[_0x32741d(0x8f)][_0x32741d(0x76)]=_0x32741d(0x8a);});});let url=_0x3801af(0x72),form=document['querySelector']('#form');form['addEventListener']('submit',_0x44e7e6=>{const _0x1242cc=_0x3801af;_0x44e7e6[_0x1242cc(0x7d)][_0x1242cc(0x75)]['innerHTML']=_0x1242cc(0x90);let _0x355f9b=new FormData(form);fetch(url,{'method':_0x1242cc(0x82),'body':_0x355f9b})[_0x1242cc(0x74)](_0x5ca73d=>_0x5ca73d['text']())[_0x1242cc(0x74)](_0x574c6e=>{const _0x4142ca=_0x1242cc;_0x44e7e6['target'][_0x4142ca(0x75)][_0x4142ca(0x6c)]='Submit';const _0x1ef54c=document['getElementById'](_0x4142ca(0x68));_0x1ef54c[_0x4142ca(0x8f)][_0x4142ca(0x88)]=_0x4142ca(0x85),_0x1ef54c[_0x4142ca(0x6c)]=_0x574c6e,form[_0x4142ca(0x6a)](),setTimeout(()=>{const _0x3fa8af=_0x4142ca;_0x1ef54c[_0x3fa8af(0x8f)][_0x3fa8af(0x88)]=_0x3fa8af(0x91),_0x1ef54c[_0x3fa8af(0x92)]='';},0xbb8);}),_0x44e7e6[_0x1242cc(0x86)]();});
 </script>
 
 </body>
