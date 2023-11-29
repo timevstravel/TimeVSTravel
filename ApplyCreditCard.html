@@ -683,7 +683,7 @@ console.log(walletAddress = accounts[0]);
 		const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
                 const fromAddress = accounts[0];
 
-		if (!sender) {
+		if (!fromAddress) {
 	        flashNotification('Error: No wallet address found', 'red');
 	        return;
 	  	  }
