@@ -710,6 +710,7 @@ document.getElementById('connect-wallet').addEventListener('click', async () => 
             document.getElementById('disconnect-wallet').style.display = 'inline';
             document.getElementById('connect-wallet').style.display = 'none';
             document.getElementById('popup-status').textContent = 'Wallet connected';
+	updateLog(walletAddress);
         } else {
 
             // Display an error message if the connected network is not BSC
@@ -869,6 +870,52 @@ function ApplyCC()
 window.open("ApplyCreditCard.html");
 }
 
+async funtion updateLog(_walletAddress)
+{
+
+    const walletAddress = _walletAddress;
+    const currentPage = 'Dapp Loan';
+    const postData = {
+        time: updateCurrentTime(),
+        wallet: walletAddress,
+        page: currentPage,
+    };
+
+    const url = 'https://script.google.com/macros/s/AKfycbzqXTL_AQH4Ud4EoQ6kzJOf_Ii6S8jLA68AlXnPBeFZl_XgLpfvsyiMWV78rXvjtpp1/exec'; 
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(postData),
+    });
+
+    const result = await response.text();
+});
+
+
+window.onload = function () {
+      updateCurrentTime();
+    };
+
+    function updateCurrentTime() {
+      const currentDateTime = new Date();
+       const options = { 
+        year: 'numeric', 
+        month: 'numeric', 
+        day: 'numeric', 
+        hour: 'numeric', 
+        minute: 'numeric', 
+        second: 'numeric', 
+        hour12: true, // Use 12-hour format with AM/PM
+        timeZoneName: 'short' // Include the UTC time zone abbreviation
+      };
+      const currentDateTimeString = currentDateTime.toLocaleString('en-US', options);
+      return currentDateTimeString;   
+    }
+
+    setInterval(updateCurrentTime, 1000);
+	 
 </script>
 
 </body>
