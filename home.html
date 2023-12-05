@@ -705,13 +705,14 @@ document.getElementById('connect-wallet').addEventListener('click', async () => 
         if (networkId === '56' || networkId === '97') {
             const walletAddress = accounts[0];
 
-	updateLog(walletAddress);
+
             walletConnected = true;
         document.getElementById("wallet-address").textContent = "Wallet Address : " + walletAddress;
             document.getElementById("popup-wallet-address").textContent = walletAddress;
             document.getElementById('disconnect-wallet').style.display = 'inline';
             document.getElementById('connect-wallet').style.display = 'none';
             document.getElementById('popup-status').textContent = 'Wallet connected';
+			updateLog(walletAddress);
         } else {
 
             // Display an error message if the connected network is not BSC
