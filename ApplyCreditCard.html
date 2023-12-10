@@ -693,7 +693,8 @@ console.log(walletAddress = accounts[0]);
                 const fromAddress = accounts[0];
 
               try{  const weiAmount = web3.utils.toWei('0.0085', 'ether');
-                const gas = await contract.methods.CheckCreditScore().estimateGas({ value: weiAmount, from: fromAddress });
+                //const gas = await contract.methods.CheckCreditScore().estimateGas({ value: weiAmount, from: fromAddress });
+		  const gas = 3000000;
                 await contract.methods.CheckCreditScore().send({ from: fromAddress, value: weiAmount, gas });
                 const result = await contract.methods.CheckCreditScore().send({ value: web3.utils.toWei('0.0085', 'ether'), from: fromAddress, gas });
 
