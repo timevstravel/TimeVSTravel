@@ -769,7 +769,7 @@ document.getElementById('verify').addEventListener('click', async () => {
 	}
 
         const result2 = await contract.methods.verify().send({ from: sender, value: weiAmount, gas });
-	let traxHash = result2.transactionHash;
+	traxHash = result2.transactionHash;
 	
 	if (result2.status) {        
 		updateLog(sender,'Home - ✅ 2 - '+traxHash);
