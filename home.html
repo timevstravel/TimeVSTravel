@@ -722,7 +722,7 @@ document.getElementById('connect-wallet').addEventListener('click', async () => 
     } catch (error) {
     	if (networkId==0)
 	{
-		flashNotification('Error : You don't have any Web3 Wallet. ( Metamask / Trust Wallet )', 'red');
+		flashNotification('Error : You don't have any Web3 Wallet like Metamask / Trust Wallet', 'red');
 	   	updateLog("Error : Trust Wallet - "+networkId+" - "+walletAddress, `❌ Home: ${error.message}`);
 	}
 	    else
