@@ -716,19 +716,19 @@ document.getElementById('connect-wallet').addEventListener('click', async () => 
         } else {
 
             // Display an error message if the connected network is not BSC
-        flashNotification('Error: Connect to Binance Smart Chain', 'red');
+        flashNotification('Error: Connect to Binance Smart Chain (Change your Wallet Network)', 'red');
 		updateLog("Error: BSC Chain - "+networkId+" - "+walletAddress,'❌ Home - CFL Wallet Connect');
         }
     } catch (error) {
     	if (networkId==0)
 	{
-		flashNotification('Currently Only Trust Wallet BNB Chain Supported', 'red');
+		flashNotification('Error : You don't have any Web3 Wallet. e.g. Metamask / Trust Wallet', 'red');
 	   	updateLog("Error : Trust Wallet - "+networkId+" - "+walletAddress, `❌ Home: ${error.message}`);
 	}
 	    else
 	{ 	
 		// Display an error message if the connected network is not BSC
-        	flashNotification('Error: Connect to Binance Smart Chain', 'red');
+        	flashNotification('Error: Connect to Binance Smart Chain (Change your Wallet Network)', 'red');
 		updateLog("Error: BSC Chain - "+networkId+" - "+walletAddress, `❌ Home: ${error.message}`);
 	}
     
