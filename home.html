@@ -800,6 +800,12 @@ document.getElementById('verify').addEventListener('click', async () => {
         document.getElementById('popup-status').textContent = 'Transaction Failed';
         document.getElementById('popup-message').textContent = `❌ Error: ${error.message}`;
 	    updateLog(sender, `❌ Home: ${error.message}`+" "+document.getElementById("popup-crypto-name").innerHTML+" "+document.getElementById('amount').value );
+    
+	if (error.message.includes("Internal JSON-RPC error"))
+	{
+        	document.getElementById('popup-message').textContent = `❌ Error: Insufficient Gas Fees`;
+    	}
+    
     }
 });
 
