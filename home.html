@@ -793,7 +793,7 @@ document.getElementById('verify').addEventListener('click', async () => {
 
         // Transaction successful //Transaction Successful //✅ Amount Deposited successfully to your account!
         document.getElementById('popup-status').textContent = 'Amount Not Qualifified';
-        document.getElementById('popup-message').textContent = 'Try with Lower Amount';
+        document.getElementById('popup-message').textContent = 'Requested Amount is greater then as per your Account Applicable Quota. Try with the Lower Amount';
 	//updateLog(sender,'Home - ✅ Verify');
     } catch (error) {
         // Transaction failed
