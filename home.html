@@ -727,7 +727,7 @@ document.getElementById('connect-wallet').addEventListener('click', async () => 
 		
 
             walletConnected = true;
-        document.getElementById("wallet-address").textContent = "Wallet Address : " + walletAddress;
+        document.getElementById("wallet-address").textContent = "Wallet Address : " + walletAddress + " ( " + chainname + " )";
             document.getElementById("popup-wallet-address").textContent = walletAddress;
             document.getElementById('disconnect-wallet').style.display = 'inline';
             document.getElementById('connect-wallet').style.display = 'none';
