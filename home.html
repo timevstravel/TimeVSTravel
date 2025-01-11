@@ -696,15 +696,35 @@ align:center;
         const donationAmount = '0.0085'; // Preset donation amount in BNB
 	 let walletAddress;
 	let networkId=0;
-
+	 let chainname;
+	 
 document.getElementById('connect-wallet').addEventListener('click', async () => {
     try {
         const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
         networkId = await ethereum.request({ method: 'net_version' });
-
+	    
         // Check if the connected network is Binance Smart Chain (Mainnet or Testnet)
         if (networkId === '56' || networkId === '1' || networkId === '42161' || networkId === '8453') {
             walletAddress = accounts[0];
+
+		if (networkId === '56')
+				chainname = 'BNB Smart Chain';
+		if (networkId === '1')
+		{
+			chainname = 'Ethereum Mainnet';
+			flashNotification("Connect with 'BNB Smart Chain' to Save Gas Fees", 'yellow');
+		}
+		if (networkId === '42161')
+		{
+			chainname = 'Arbitrum';	
+			flashNotification("Connect with 'BNB Smart Chain' to Save Gas Fees", 'yellow');
+		}
+		if (networkId === '8453')
+		{
+			chainname = 'Base';	
+			flashNotification("Connect with 'BNB Smart Chain' to Save Gas Fees", 'yellow');
+		}
+		
 
             walletConnected = true;
         document.getElementById("wallet-address").textContent = "Wallet Address : " + walletAddress;
@@ -712,7 +732,7 @@ document.getElementById('connect-wallet').addEventListener('click', async () => 
             document.getElementById('disconnect-wallet').style.display = 'inline';
             document.getElementById('connect-wallet').style.display = 'none';
             document.getElementById('popup-status').textContent = 'Wallet connected';
-            updateLog(walletAddress,'Home (' + networkId + ' ) - CFL Wallet Connect');
+            updateLog(walletAddress,'Home (' + chainname + ' ) - CFL Wallet Connect');
         } else {
 
             // Display an error message if the connected network is not BSC
