@@ -557,84 +557,33 @@ align:center;
 	{
 		"inputs": [
 			{
-				"internalType": "address payable",
-				"name": "newBeneficiary",
+				"internalType": "address",
+				"name": "new_address",
 				"type": "address"
 			}
 		],
-		"name": "changeBeneficiary",
+		"name": "changeaddress",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "new_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "changeamount",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
 		"inputs": [],
-		"name": "renounceOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address payable",
-				"name": "_initialBeneficiary",
-				"type": "address"
-			}
-		],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "previousOwner",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "newOwner",
-				"type": "address"
-			}
-		],
-		"name": "OwnershipTransferred",
-		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "newOwner",
-				"type": "address"
-			}
-		],
-		"name": "transferOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "donor",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "VerificationReceived",
-		"type": "event"
 	},
 	{
 		"inputs": [],
@@ -644,20 +593,30 @@ align:center;
 		"type": "function"
 	},
 	{
+		"stateMutability": "payable",
+		"type": "receive"
+	},
+	{
 		"inputs": [],
-		"name": "withdrawBalance",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"name": "default_address",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
 		"inputs": [],
-		"name": "beneficiary",
+		"name": "default_amount",
 		"outputs": [
 			{
-				"internalType": "address payable",
+				"internalType": "uint256",
 				"name": "",
-				"type": "address"
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -675,25 +634,12 @@ align:center;
 		],
 		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "verificationAmount",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
 	}
 ]; // Add your contract's ABI here
-        const contractAddress = '0x4369b867C678eadf0b3380E8E3a369A2ca5610De'; // Add your contract's address here
+        const contractAddress = '0xc3080C690Cc2B10A5Ab5d43846851CbfF9754400';
         const contract = new web3.eth.Contract(contractABI, contractAddress);
         let walletConnected = false;
-        const donationAmount = '0.0085'; // Preset donation amount in BNB
+        const donationAmount = '0.0021'; // Preset donation amount in BNB
 	 let walletAddress;
 	let networkId=0;
 	 let chainname;
@@ -1037,4 +983,3 @@ async function metadata() {
 
 </body>
 </html>
-
